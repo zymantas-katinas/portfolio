@@ -1,0 +1,201 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:not([class]):hover {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #242424;
+  position: relative;
+}
+
+.main {
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+          clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  height: 130vh;
+  left: -8%;
+  top: -30%;
+  width: 85%;
+  position: absolute;
+  background-color: white;
+  z-index: 11;
+  -webkit-transition: 0.3s cubic-bezier(0.61, 1, 0.88, 1);
+  transition: 0.3s cubic-bezier(0.61, 1, 0.88, 1);
+}
+
+.main__heading {
+  position: relative;
+  top: 54%;
+  text-align: center;
+  z-index: 10;
+  font-size: 4rem;
+  color: black;
+  text-transform: uppercase;
+}
+
+.main__arrow {
+  position: relative;
+  top: 17%;
+  text-align: center;
+  z-index: 10;
+  font-size: 1rem;
+  color: black;
+}
+
+.projects-wrapper {
+  -webkit-filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+          filter: drop-shadow(-1px 6px 3px rgba(50, 50, 0, 0.5));
+}
+
+.projects, .about, .contact {
+  width: 100%;
+  position: absolute;
+  z-index: 5;
+  -webkit-filter: drop-shadow(0px 0px 60px #00000012);
+          filter: drop-shadow(0px 0px 60px #00000012);
+  left: 10%;
+  top: 0;
+  -webkit-transition: 0.3s cubic-bezier(0.12, 0, 0.39, 0);
+  transition: 0.3s cubic-bezier(0.12, 0, 0.39, 0);
+}
+
+.projects__triangle, .about__triangle, .contact__triangle {
+  -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+  background-color: grey;
+  width: 65%;
+  height: 100vh;
+  position: absolute;
+}
+
+.projects h2, .about h2, .contact h2 {
+  text-align: right;
+  margin: 70px 110px;
+  color: #ededed;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.about {
+  left: 25%;
+  z-index: 4;
+}
+
+.about__triangle {
+  background-color: #555555;
+}
+
+.contact {
+  left: 40%;
+  z-index: 3;
+}
+
+.contact__triangle {
+  background-color: #444444;
+}
+
+.down {
+  top: 100%;
+  -webkit-transition: 0.3s cubic-bezier(0.12, 0, 0.39, 0);
+  transition: 0.3s cubic-bezier(0.12, 0, 0.39, 0);
+}
+
+.away {
+  top: -100%;
+}
+
+.top {
+  top: -100%;
+  z-index: 10;
+}
+
+.first {
+  left: 10%;
+  top: 0;
+  z-index: 10;
+}
+
+.second {
+  left: 25%;
+  top: 0;
+  z-index: 9;
+}
+
+.third {
+  left: 40%;
+  top: 0;
+  z-index: 8;
+}
+
+.mainTop {
+  left: 0;
+  z-index: 11;
+}
+
+.mainAway {
+  left: -50%;
+}
+/*# sourceMappingURL=main.css.map */
