@@ -9,8 +9,6 @@ function Main() {
   const handleClick = () => {
     if (position === "mainAway") {
       dispatch(mainOnTop())
-    } else {
-      // dispatch(mainAway())
     }
   }
 
@@ -18,11 +16,9 @@ function Main() {
     <div className={`main ${position}`} onClick={handleClick}>
       <h1 className="main__heading">
         I Design <br /> and Develop <br />
-        Modern Websites.
+        Unique Websites.
       </h1>
-      <div className="main__arrow">
-        <h1>\/</h1>
-      </div>
+      <div className="main__arrow">{/* <h1>\/</h1> */}</div>
     </div>
   )
 }

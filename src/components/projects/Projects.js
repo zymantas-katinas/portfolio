@@ -1,25 +1,22 @@
 import React from "react"
-// import { useState } from "react"
+import Project from "./Project"
 import { useSelector, useDispatch } from "react-redux"
 import {
   projectsAway,
   projectsTop,
   projectsFirst,
-  projectsSecond,
-  projectsThird,
-  contactAway,
   contactSecond,
   contactThird,
-  aboutAway,
   aboutSecond,
   aboutThird,
   mainAway,
-  mainDefault,
-} from "../actions"
+} from "../../actions"
 
 function Projects() {
   const position = useSelector((state) => state.projectsPosition)
   const aboutPosition = useSelector((state) => state.aboutPosition)
+  const mainPosition = useSelector((state) => state.mainPosition)
+
   const dispatch = useDispatch()
   const handleClick = () => {
     if (position !== "first") {
@@ -30,24 +27,27 @@ function Projects() {
       }, 300)
       setTimeout(() => {
         dispatch(projectsFirst())
-      }, 500)
-
-      if (aboutPosition === "first") {
-        dispatch(aboutSecond())
-        dispatch(contactThird())
-      } else {
-        dispatch(contactSecond())
-        dispatch(aboutThird())
-      }
+        if (aboutPosition === "first") {
+          dispatch(aboutSecond())
+          dispatch(contactThird())
+        } else {
+          dispatch(contactSecond())
+          dispatch(aboutThird())
+        }
+      }, 700)
     } else {
       dispatch(mainAway())
     }
   }
 
   return (
-    <div className={`projects ${position}`}>
-      <div className="projects__triangle" onClick={handleClick}>
-        <h2>Projects</h2>
+    <div>
+      <Project ifShow={position === "first" && mainPosition === "mainAway"} />
+
+      <div className={`projects ${position}`}>
+        <div className="projects__triangle">
+          <h2 onClick={handleClick}>Projects</h2>
+        </div>
       </div>
     </div>
   )

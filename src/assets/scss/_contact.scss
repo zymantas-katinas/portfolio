@@ -1,0 +1,53 @@
+.contact {
+  // padding: 96px 0;
+  @extend .projects;
+  left: 47%;
+  z-index: 8;
+  &__triangle {
+    @extend .projects__triangle;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__image {
+    position: relative;
+    right: 100px;
+  }
+  &__form {
+    color: white;
+    left: 50%;
+    top: 100%;
+    opacity: 0;
+    position: fixed;
+    width: 35%;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    pointer-events: none;
+    transition: 0.5s cubic-bezier(0, 0.81, 0, 0.89);
+
+    form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    input,
+    textarea {
+      width: 100%;
+    }
+  }
+
+  button {
+    margin: 0;
+  }
+  &__info-top-over {
+    display: none;
+  }
+}

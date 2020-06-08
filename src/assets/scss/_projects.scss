@@ -1,0 +1,152 @@
+.projects {
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  left: 11%;
+  top: 0;
+  transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1); // changes down animation
+
+  &__triangle {
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    background-color: #3106f13b;
+    width: 60%;
+    height: 100vh;
+    position: absolute;
+    opacity: 0.8;
+  }
+
+  & h2 {
+    text-align: right;
+    margin: 20px 129px 70px 0;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: fit-content;
+    float: right;
+    &:hover {
+      opacity: 1;
+      &:after {
+        width: 100%;
+      }
+    }
+    &:after {
+      display: block;
+      content: "";
+      width: 0%;
+      height: 3px;
+      background-color: white;
+      transition: 0.5s cubic-bezier(0, 0.96, 0, 1.04);
+    }
+  }
+}
+
+.project {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 100vh;
+  &__info-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__gallery {
+    z-index: 100;
+    width: 65%;
+    max-height: 100vh;
+    margin-left: 5%;
+    position: relative;
+    left: -100%;
+    transition: 0.3s cubic-bezier(0.97, -0.07, 0.9, 0.19);
+
+    & img {
+      width: 100%;
+      height: 100vh;
+      // background-position: fit-content;
+      display: block;
+      object-fit: cover;
+      overflow: hidden;
+      object-position: top;
+    }
+    &-images {
+      display: flex;
+      flex-direction: column;
+      top: -103px;
+      position: absolute;
+      box-shadow: -48px 0px 26px 57px rgba(0, 0, 0, 0.75);
+    }
+    &-control {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      padding: 0 3%;
+      & svg {
+        width: 40px;
+        height: auto;
+        opacity: 0;
+        cursor: pointer;
+      }
+      &-left {
+        height: 100%;
+        display: flex;
+        width: 50%;
+        & svg {
+          transform: rotate(180deg);
+        }
+      }
+      &-right {
+        height: 100%;
+        display: flex;
+        width: 50%;
+        justify-content: flex-end;
+      }
+    }
+    &:hover {
+      & svg {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__info {
+    width: 30%;
+    padding: 130px 40px 40px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    right: -100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.3s cubic-bezier(0.97, -0.07, 0.9, 0.19);
+    & h1 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+  }
+  &__control {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    z-index: 99999;
+    & svg {
+      height: 100%;
+      opacity: 0.5;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    &-left {
+      transform: rotate(180deg);
+    }
+  }
+}

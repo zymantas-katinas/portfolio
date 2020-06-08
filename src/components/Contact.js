@@ -1,4 +1,5 @@
 import React from "react"
+import ContactForm from "./ContactForm"
 import { useSelector, useDispatch } from "react-redux"
 import {
   projectsSecond,
@@ -14,6 +15,7 @@ import {
 function Contact() {
   const position = useSelector((state) => state.contactPosition)
   const aboutPosition = useSelector((state) => state.aboutPosition)
+  const mainPosition = useSelector((state) => state.mainPosition)
   const dispatch = useDispatch()
 
   const handleClick = () => {
@@ -23,27 +25,32 @@ function Contact() {
       setTimeout(() => {
         dispatch(contactTop())
       }, 300)
+
       setTimeout(() => {
         dispatch(contactFirst())
-      }, 500)
-
-      if (aboutPosition === "first") {
-        dispatch(aboutSecond())
-        dispatch(projectsThird())
-      } else {
-        dispatch(projectsSecond())
-        dispatch(aboutThird())
-      }
+        if (aboutPosition === "first") {
+          dispatch(aboutSecond())
+          dispatch(projectsThird())
+        } else {
+          dispatch(projectsSecond())
+          dispatch(aboutThird())
+        }
+      }, 700)
     } else {
       dispatch(mainAway())
     }
   }
 
   return (
-    <div className={`contact ${position}`}>
-      <div className="contact__triangle" onClick={handleClick}>
-        <h2>Get in touch</h2>
+    <div>
+      <div className={`contact ${position}`}>
+        <div className="contact__triangle">
+          <h2 onClick={handleClick}>Hire Me</h2>
+        </div>
       </div>
+      <ContactForm
+        ifShow={position === "first" && mainPosition === "mainAway"}
+      />
     </div>
   )
 }

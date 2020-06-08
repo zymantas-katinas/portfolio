@@ -1,0 +1,41 @@
+.about {
+  @extend .projects;
+  left: 30%;
+  z-index: 9;
+  &__triangle {
+    @extend .projects__triangle;
+  }
+  &__info {
+    &-left {
+      position: relative;
+      left: -100%;
+      opacity: 0;
+      transition: 0.5s cubic-bezier(0.1, 0.54, 0.05, 0.79);
+    }
+    color: white;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    pointer-events: none;
+    & p {
+      text-align: center;
+      padding: 50px 0 0 0;
+    }
+    & h1 {
+      text-align: center;
+      padding: 150px 0 0 0;
+    }
+    .left {
+      shape-outside: polygon(5% 0%, 105% 100%, 0 100%);
+      float: left;
+      height: 100vh;
+      width: 50%;
+    }
+    .right {
+      shape-outside: polygon(95% 0%, 100% 100%, -5% 100%);
+      float: right;
+      height: 100vh;
+      width: 50%;
+    }
+  }
+}
