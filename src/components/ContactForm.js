@@ -66,7 +66,7 @@ const ContactForm = (props) => {
     <div className={`contact__form ${props.ifShow ? "fromBottom" : null}`}>
       <form onSubmit={handleSave}>
         <p className="contact__info-top">
-          Fill out your details, and we will get back to you shortly:
+          Fill out your details, and I will get back to you shortly:
         </p>
 
         <div className="contact__input">
@@ -78,7 +78,7 @@ const ContactForm = (props) => {
             onChange={(e) => setNameInput(e.target.value)}
             style={
               nameError !== null
-                ? { border: "1px solid rgb(246, 79, 100)" }
+                ? { border: "2px solid rgb(185, 55, 71)" }
                 : null
             }
           />
@@ -99,7 +99,7 @@ const ContactForm = (props) => {
             onChange={(e) => setEmailInput(e.target.value)}
             style={
               emailError !== null
-                ? { border: "1px solid rgb(246, 79, 100)" }
+                ? { border: "2px solid rgb(185, 55, 71)" }
                 : null
             }
           />
@@ -113,16 +113,14 @@ const ContactForm = (props) => {
 
         <textarea
           name="message"
+          placeholder="Your Message"
           value={messageInput}
           onChange={(e) => setMessageInput(e.target.value)}
         ></textarea>
 
-        <p className="contact__info-bottom">
-          This information will be used by NordPass to respond to your inquiry
-          as provided in our <a href="\">Privacy Policy.</a>
-        </p>
+        {/* <p className="contact__info-bottom">If you are having trouble</p> */}
         <button className="button-medium" type="submit" disabled={disable}>
-          Get Started
+          Submit
         </button>
       </form>
     </div>

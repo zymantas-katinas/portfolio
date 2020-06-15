@@ -7,30 +7,41 @@
   z-index: 10;
 }
 .first {
-  left: 11%;
+  left: 10%;
   top: 0;
   z-index: 10;
+  color: $lightestText;
+  & h2 {
+    opacity: 1;
+  }
   & h2:after {
     width: 100%;
+    color: $lightestText;
   }
 }
 .second {
-  left: 30%;
+  left: 28%;
   top: 0;
   z-index: 9;
 }
 .third {
-  left: 47%;
+  left: 45%;
   top: 0;
   z-index: 8;
 }
 
+.projectsDefault {
+  left: 10%;
+  top: 0;
+  z-index: 10;
+}
 .mainTop {
-  left: 0;
+  left: -31%;
   z-index: 11;
 }
 .mainAway {
-  left: -52%;
+  left: -100%;
+
   h1 {
     opacity: 0;
   }
@@ -39,16 +50,38 @@
   display: block;
   pointer-events: auto;
 }
+.visible {
+  opacity: 1;
+}
+.invisible {
+  opacity: 0;
+  transition: 3s cubic-bezier(0.34, 0.3, 0.49, 0.69);
+}
+.active {
+  opacity: 1;
+  cursor: default;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .fromLeft {
   left: 0;
-  opacity: 1;
-  transition: 0.5s cubic-bezier(0, 0.92, 0, 1.01);
+  opacity: 100%;
+  transition: 1.5s cubic-bezier(0, 0.92, 0, 1.01);
+  max-height: auto;
+  .project__gallery-images {
+    max-height: fit-content;
+  }
 }
 
 .fromRight {
   right: 0;
   opacity: 1;
   transition: 0.5s cubic-bezier(0, 0.65, 0.26, 1.01);
+  .project__control {
+    pointer-events: all;
+  }
 }
 
 .fromBottom {
@@ -63,4 +96,50 @@
   opacity: 1;
   transition: 1.5s cubic-bezier(0, 0.65, 0.26, 1.01);
   pointer-events: all;
+}
+.fromBottomBar {
+  top: 96%;
+  opacity: 1;
+  transition: 1.5s cubic-bezier(0, 0.65, 0.26, 1.01);
+}
+@keyframes up-down {
+  0% {
+    top: 8%;
+  }
+  50% {
+    top: 14%;
+  }
+  100% {
+    top: 8%;
+  }
+}
+
+@keyframes opacity-up {
+  0% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.moveUpDown {
+  animation-name: up-down;
+  animation-duration: 10s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transition: 2s ease-in-out;
+  top: 8%;
+}
+.rightTriangleBottom {
+  top: 8%;
+  transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
+}
+.leftTriangleBottom {
+  top: 12%;
+  transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
 }

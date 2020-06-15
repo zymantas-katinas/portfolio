@@ -3,18 +3,19 @@
         "title": " VITAZEKAITE.COM Photography portfolio",
         "paragraph": "blabla bla paragrafas",
         "img": [
-            "https://images.unsplash.com/photo-1588609376705-ca0a683a2378?ixlib=rb-1.2.1&auto=format&fit=crop&w=1401&q=80",
-            "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80",
-            "https://images.unsplash.com/photo-1519211975560-4ca611f5a72a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6377-1024x683.jpg",
+            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6370-1024x683.jpg",
+            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6349-1024x683.jpg",
+            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6513-1024x683.jpg"
         ]
     },
     {
         "title": "My second Website",
         "paragraph": "blabla bla paragrafas antras",
         "img": [
-            "https://images.unsplash.com/photo-1483058712412-4245e9b90334?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-            "https://images.unsplash.com/photo-1422246358533-95dcd3d48961?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
-            "https://images.unsplash.com/photo-1514580426463-fd77dc4d0672?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=930&q=80"
+            "https://www.dviesepoazija.lt/wp-content/uploads/2018/01/IMG_1826.jpg",
+            "https://www.dviesepoazija.lt/wp-content/uploads/2018/01/IMG_1805.jpg",
+            "https://www.dviesepoazija.lt/wp-content/uploads/2018/01/IMG_1832.jpg"
         ]
     }
 ]

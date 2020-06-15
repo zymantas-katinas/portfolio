@@ -1,5 +1,5 @@
 // export default projectsPositionReducer
-const projectsPositionReducer = (state = "", action) => {
+const projectsPositionReducer = (state = "away", action) => {
   switch (action.type) {
     case "PROJECTS_AWAY":
       return "away"
@@ -11,6 +11,8 @@ const projectsPositionReducer = (state = "", action) => {
       return "second"
     case "PROJECTS_THIRD":
       return "third"
+    case "PROJECTS_DEFAULT":
+      return "projectsDefault"
     default:
       return state
   }

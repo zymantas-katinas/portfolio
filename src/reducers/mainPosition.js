@@ -1,4 +1,4 @@
-const mainPositionReducer = (state = "mainTop", action) => {
+const mainPositionReducer = (state = "mainAway", action) => {
   switch (action.type) {
     case "MAIN_AWAY":
       return "mainAway"

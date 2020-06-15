@@ -1,4 +1,4 @@
-const contactPositionReducer = (state = "second", action) => {
+const contactPositionReducer = (state = "away", action) => {
   switch (action.type) {
     case "CONTACT_AWAY":
       return "away"

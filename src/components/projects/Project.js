@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { ReactComponent as Arrow } from "../../assets/images/arrow.svg"
 import projectsData from "./projectData.json"
+import { AiOutlineLeft } from "react-icons/ai"
+import { AiOutlineRight } from "react-icons/ai"
 
 function Project(props) {
   const [num, setNum] = useState(0)
@@ -8,8 +9,21 @@ function Project(props) {
 
   // get all project images
   const allProjectImages = currentProject.img.map((item) => {
-    return <img src={item}></img>
+    return <img key={item} src={item}></img>
   })
+  const projectBars = projectsData.map((item) => (
+    <span
+      key={item.title}
+      onClick={() => {
+        setNum(projectsData.indexOf(item))
+      }}
+      className={`project__bar-span ${
+        projectsData.indexOf(item) === num ? "active" : null
+      }`}
+    >
+      <span>{projectsData.indexOf(item) + 1}</span>
+    </span>
+  ))
   // next / previous project
   const previous = () => {
     if (num === 0) {
@@ -39,12 +53,17 @@ function Project(props) {
           </div>
           <div className="project__control">
             <div className="project__control-left" onClick={previous}>
-              <Arrow />
+              <AiOutlineLeft />
             </div>
             <div className="project__control-right" onClick={next}>
-              <Arrow />
+              <AiOutlineRight />
             </div>
           </div>
+        </div>
+        <div
+          className={`project__bar ${props.ifShow ? "fromBottomBar" : null}`}
+        >
+          {projectBars}
         </div>
       </div>
     </div>

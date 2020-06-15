@@ -19,7 +19,7 @@ function Projects() {
 
   const dispatch = useDispatch()
   const handleClick = () => {
-    if (position !== "first") {
+    if (position !== "first" && position !== "projectsDefault") {
       dispatch(mainAway())
       dispatch(projectsAway())
       setTimeout(() => {
@@ -35,15 +35,15 @@ function Projects() {
           dispatch(aboutThird())
         }
       }, 700)
-    } else {
+    } else if (position === "projectsDefault") {
       dispatch(mainAway())
+      dispatch(projectsFirst())
     }
   }
 
   return (
     <div>
       <Project ifShow={position === "first" && mainPosition === "mainAway"} />
-
       <div className={`projects ${position}`}>
         <div className="projects__triangle">
           <h2 onClick={handleClick}>Projects</h2>

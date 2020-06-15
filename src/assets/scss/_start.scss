@@ -1,0 +1,42 @@
+.main {
+  height: 100vh;
+  left: -31%;
+  width: 100%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 11;
+  transition: 2s cubic-bezier(0, 1.13, 0.21, 0.99);
+  &__triangle {
+    @extend %triangleDown;
+  }
+  &__heading {
+    transition: 0.5s cubic-bezier(0.49, 0.64, 0, 0.91);
+    opacity: 0.85;
+    position: relative;
+    top: 45%;
+    left: 20%;
+    text-align: center;
+    z-index: 10;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: normal;
+    color: $lightestText;
+    text-transform: uppercase;
+    & span {
+      font-weight: 600;
+    }
+  }
+  &__text {
+    position: relative;
+    bottom: -68%;
+    left: 34%;
+    text-transform: uppercase;
+    text-align: left;
+    z-index: 10;
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: $lightText;
+    width: 28%;
+    // opacity: 0.75;
+  }
+}

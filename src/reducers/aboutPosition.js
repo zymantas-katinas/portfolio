@@ -1,4 +1,4 @@
-const aboutPositionReducer = (state = "third", action) => {
+const aboutPositionReducer = (state = "away", action) => {
   switch (action.type) {
     case "ABOUT_AWAY":
       return "away"

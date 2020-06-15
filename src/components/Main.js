@@ -14,11 +14,14 @@ function Main() {
 
   return (
     <div className={`main ${position}`} onClick={handleClick}>
+      <div className="main__triangle"></div>
       <h1 className="main__heading">
-        I Design <br /> and Develop <br />
-        Unique Websites.
+        I <span>Design</span> <br /> and <span>Develop</span> <br />
+        Unique <span>Websites.</span>
       </h1>
-      <div className="main__arrow">{/* <h1>\/</h1> */}</div>
+      <div className="main__text">
+        <p>“A creative person With developers Mindset.”</p>
+      </div>
     </div>
   )
 }

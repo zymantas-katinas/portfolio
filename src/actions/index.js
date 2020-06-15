@@ -63,6 +63,11 @@ export const projectsThird = () => {
     type: "PROJECTS_THIRD",
   }
 }
+export const projectsDefault = () => {
+  return {
+    type: "PROJECTS_DEFAULT",
+  }
+}
 
 //ABOUT
 export const aboutAway = () => {

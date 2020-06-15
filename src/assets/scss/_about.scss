@@ -1,18 +1,18 @@
 .about {
   @extend .projects;
-  left: 30%;
+  left: 28%;
   z-index: 9;
   &__triangle {
-    @extend .projects__triangle;
+    @extend %triangleDown;
   }
   &__info {
     &-left {
       position: relative;
-      left: -100%;
-      opacity: 0;
+      left: -50%;
+      opacity: 0%;
       transition: 0.5s cubic-bezier(0.1, 0.54, 0.05, 0.79);
     }
-    color: white;
+    color: $lightestText;
     position: absolute;
     height: 100vh;
     top: 0;

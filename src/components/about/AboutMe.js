@@ -4,8 +4,8 @@ function AboutMe(props) {
   return (
     <div className="about__info">
       <div className={`about__info-left ${props.ifShow ? "fromLeft" : null}`}>
-        <div class="left"></div>
-        <div class="right"></div>
+        <div className="left"></div>
+        <div className="right"></div>
         <h1>Something About Me</h1>
         <p>
           Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam

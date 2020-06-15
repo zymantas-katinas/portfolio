@@ -1,0 +1,142 @@
+@media only screen and (max-width: 600px) {
+  %triangleDown {
+    width: 100%;
+    clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    padding: 1.5rem 66% 0 0;
+    display: flex;
+    justify-content: center;
+    // background: rgb(73, 68, 80);
+    background: linear-gradient(
+      0deg,
+      #49445000 0%,
+      rgba(73, 68, 80, 0.18) 100%
+    );
+    & h2 {
+      transform: translate(0%);
+      font-size: 1rem;
+      float: left;
+    }
+  }
+  .logo {
+    display: none;
+  }
+  .rightTriangle {
+    left: 116%;
+    top: 100%;
+    transition: 10s ease-in-out;
+    opacity: 0.3;
+  }
+  .leftTriangle {
+    display: none;
+  }
+  .main {
+    &__triangle {
+      display: none;
+    }
+  }
+  .projects {
+    left: 0%;
+  }
+  .contact {
+    left: 66%;
+  }
+  .about {
+    left: 33%;
+    &__info {
+      left: 0;
+      h1 {
+        padding: 0;
+        font-size: 1.5rem;
+      }
+      p {
+        padding: 50px 5%;
+        text-align: left;
+      }
+      &-left {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    .left {
+      display: none;
+    }
+    .right {
+      display: none;
+    }
+  }
+  .first {
+    left: 0%;
+  }
+  .second {
+    left: 33%;
+  }
+  .third {
+    left: 66%;
+  }
+  @keyframes up-down {
+    0% {
+      top: 0%;
+    }
+    50% {
+      top: 100%;
+    }
+    100% {
+      top: 0%;
+    }
+  }
+  .bottom-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    bottom: 2%;
+    &__icons {
+      margin-left: 0;
+      width: fit-content;
+      svg {
+        margin: 0 20px;
+      }
+    }
+    &__status {
+      margin: 2% 0 0 0;
+      position: relative;
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+  .contact__form {
+    width: 80%;
+  }
+  .bottom-triangle {
+    height: 6%;
+    opacity: 0.3;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(100 0%, 0% 100%, 100% 100%);
+    background-color: white;
+    position: fixed;
+  }
+}
+@media only screen and (max-height: 600px) {
+  .bottom-info {
+    display: none;
+  }
+  %triangleDown {
+    h2 {
+      display: none;
+    }
+  }
+  .contact__info-top {
+    display: none;
+  }
+  .contact__form {
+    button {
+      margin: 0.5em 0;
+    }
+  }
+}

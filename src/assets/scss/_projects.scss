@@ -2,28 +2,33 @@
   width: 100%;
   position: fixed;
   z-index: 10;
-  left: 11%;
+  left: 10%;
   top: 0;
   transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1); // changes down animation
 
   &__triangle {
-    clip-path: polygon(50% 100%, 0 0, 100% 0);
-    background-color: #3106f13b;
-    width: 60%;
-    height: 100vh;
-    position: absolute;
-    opacity: 0.8;
+    @extend %triangleDown;
   }
 
   & h2 {
+    // -webkit-user-select: none; /* Chrome all / Safari all */
+    // -moz-user-select: none; /* Firefox all */
+    // -ms-user-select: none; /* IE 10+ */
+    // user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    pointer-events: all;
     text-align: right;
-    margin: 20px 129px 70px 0;
-    color: white;
+    color: $lightestText;
+    opacity: 0.7;
     font-size: 1rem;
     text-transform: uppercase;
     cursor: pointer;
     width: fit-content;
     float: right;
+    transform: translateX(50%);
+    font-weight: 500;
+    transition: 0.5s cubic-bezier(0.1, 0.72, 0, 0.94);
+    height: fit-content;
     &:hover {
       opacity: 1;
       &:after {
@@ -35,8 +40,8 @@
       content: "";
       width: 0%;
       height: 3px;
-      background-color: white;
-      transition: 0.5s cubic-bezier(0, 0.96, 0, 1.04);
+      background-color: $lightestText;
+      transition: 0.2s cubic-bezier(0.01, 0.21, 0.35, 1);
     }
   }
 }
@@ -46,79 +51,49 @@
   flex-wrap: wrap;
   flex-direction: row;
   height: 100vh;
+
   &__info-wrapper {
     position: fixed;
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: flex-end;
+    z-index: 100;
+    pointer-events: none;
   }
   &__gallery {
     z-index: 100;
-    width: 65%;
-    max-height: 100vh;
-    margin-left: 5%;
+    width: 67%;
+    margin-left: 3%;
     position: relative;
     left: -100%;
     transition: 0.3s cubic-bezier(0.97, -0.07, 0.9, 0.19);
+    pointer-events: none;
 
     & img {
       width: 100%;
-      height: 100vh;
-      // background-position: fit-content;
+      height: auto;
       display: block;
       object-fit: cover;
       overflow: hidden;
       object-position: top;
+      will-change: scroll-position;
     }
     &-images {
       display: flex;
       flex-direction: column;
       top: -103px;
       position: absolute;
-      box-shadow: -48px 0px 26px 57px rgba(0, 0, 0, 0.75);
-    }
-    &-control {
-      height: 100%;
-      position: absolute;
-      top: 0;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      align-items: center;
-      padding: 0 3%;
-      & svg {
-        width: 40px;
-        height: auto;
-        opacity: 0;
-        cursor: pointer;
-      }
-      &-left {
-        height: 100%;
-        display: flex;
-        width: 50%;
-        & svg {
-          transform: rotate(180deg);
-        }
-      }
-      &-right {
-        height: 100%;
-        display: flex;
-        width: 50%;
-        justify-content: flex-end;
-      }
-    }
-    &:hover {
-      & svg {
-        opacity: 0.7;
-      }
+      // box-shadow: -48px 0px 26px 57px rgba(0, 0, 0, 0.75);
+      max-height: 100%;
+      // will-change: scroll-position;
     }
   }
 
   &__info {
-    width: 30%;
+    width: 31%;
     padding: 130px 40px 40px;
-    color: white;
+    color: $lightestText;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -126,6 +101,7 @@
     height: 100%;
     position: absolute;
     transition: 0.3s cubic-bezier(0.97, -0.07, 0.9, 0.19);
+
     & h1 {
       font-size: 1.5rem;
       margin-bottom: 2rem;
@@ -137,7 +113,10 @@
     flex-direction: row;
     justify-content: space-around;
     z-index: 99999;
+    pointer-events: none;
+    margin-bottom: 20px;
     & svg {
+      font-size: 3rem;
       height: 100%;
       opacity: 0.5;
       cursor: pointer;
@@ -145,8 +124,37 @@
         opacity: 1;
       }
     }
-    &-left {
-      transform: rotate(180deg);
+  }
+  &__bar {
+    display: flex;
+    justify-content: space-between;
+    width: 31%;
+    padding: 0 30px;
+    top: 100%;
+    position: absolute;
+    height: fit-content;
+    z-index: 999999;
+    opacity: 0;
+    transition: 1.5s cubic-bezier(0, 0.65, 0.26, 1.01);
+    &-span {
+      content: "";
+      height: 5px;
+      width: 100%;
+      margin: 0 5px;
+      background-color: white;
+      display: block;
+      pointer-events: all;
+      opacity: 0.3;
+      cursor: pointer;
+      transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
+      &:hover {
+        opacity: 1;
+      }
+      & span {
+        color: white;
+        top: -21px;
+        position: relative;
+      }
     }
   }
 }
