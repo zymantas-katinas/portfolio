@@ -1,6 +1,7 @@
 .main {
   height: 100vh;
-  left: -31%;
+  left: 0%;
+  transform: translateX(-100%);
   width: 100%;
   position: fixed;
   pointer-events: none;

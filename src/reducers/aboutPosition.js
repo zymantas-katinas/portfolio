@@ -1,5 +1,7 @@
 const aboutPositionReducer = (state = "away", action) => {
   switch (action.type) {
+    case "ABOUT_DEFAULT":
+      return "aboutDefault"
     case "ABOUT_AWAY":
       return "away"
     case "ABOUT_TOP":

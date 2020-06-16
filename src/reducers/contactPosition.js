@@ -1,5 +1,7 @@
 const contactPositionReducer = (state = "away", action) => {
   switch (action.type) {
+    case "CONTACT_DEFAULT":
+      return "contactDefault"
     case "CONTACT_AWAY":
       return "away"
     case "CONTACT_TOP":

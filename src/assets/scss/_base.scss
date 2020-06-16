@@ -32,6 +32,7 @@ body {
   background-color: $background;
   position: relative;
   -webkit-font-smoothing: antialiased;
+  will-change: scroll-position;
 }
 .loading-screen {
   position: absolute;
@@ -67,7 +68,9 @@ body {
   position: fixed;
   z-index: 12;
   color: $lightText;
-  top: 100%;
+  // top: 100%;
+  bottom: 0;
+  transform: translateY(100%);
   opacity: 0;
   &__status {
     bottom: 12px;
@@ -175,14 +178,14 @@ body {
 .leftTriangle {
   @extend %triangleUp;
   left: 67px;
-  top: 100%;
-  transform: translateX(-50%);
+  // top: 100%;
+  transform: translate(-50%, 100%);
 }
 
 .rightTriangle {
   @extend %triangleUp;
   left: 92%;
-  top: 100%;
-  transform: translateX(-50%);
+  // top: 100%;
+  transform: translate(-50%, 100%);
   transition: 2s ease-in-out;
 }

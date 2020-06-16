@@ -11,6 +11,11 @@ export const mainOnTop = () => {
 }
 
 // CONTACT
+export const contactDefault = () => {
+  return {
+    type: "CONTACT_DEFAULT",
+  }
+}
 export const contactAway = () => {
   return {
     type: "CONTACT_AWAY",
@@ -70,6 +75,11 @@ export const projectsDefault = () => {
 }
 
 //ABOUT
+export const aboutDefault = () => {
+  return {
+    type: "ABOUT_DEFAULT",
+  }
+}
 export const aboutAway = () => {
   return {
     type: "ABOUT_AWAY",

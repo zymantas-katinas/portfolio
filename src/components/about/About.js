@@ -2,8 +2,10 @@ import React from "react"
 import AboutMe from "./AboutMe"
 import { useSelector, useDispatch } from "react-redux"
 import {
+  projectsDefault,
   projectsSecond,
   projectsThird,
+  contactDefault,
   contactSecond,
   contactThird,
   aboutAway,
@@ -16,28 +18,60 @@ function About() {
   const position = useSelector((state) => state.aboutPosition)
   const contactPosition = useSelector((state) => state.contactPosition)
   const mainPosition = useSelector((state) => state.mainPosition)
+  const projectsPosition = useSelector((state) => state.projectsPosition)
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    if (position !== "first") {
-      dispatch(aboutAway())
-      dispatch(mainAway())
-      setTimeout(() => {
-        dispatch(aboutTop())
-      }, 300)
-
-      setTimeout(() => {
+    if (window.innerWidth < 600) {
+      if (position !== "first") {
+        dispatch(mainAway())
         dispatch(aboutFirst())
-        if (contactPosition === "first") {
-          dispatch(contactSecond())
-          dispatch(projectsThird())
+        if (position === "second") {
+          if (contactPosition === "first") {
+            dispatch(contactSecond())
+            dispatch(projectsThird())
+          } else if (projectsPosition === "first") {
+            dispatch(projectsThird())
+            dispatch(contactSecond())
+          }
         } else {
-          dispatch(projectsSecond())
-          dispatch(contactThird())
+          if (contactPosition === "first") {
+            dispatch(contactThird())
+            dispatch(projectsSecond())
+          } else if (projectsPosition === "first") {
+            dispatch(projectsSecond())
+            dispatch(contactThird())
+          }
         }
-      }, 700)
+      } else {
+        dispatch(mainAway())
+      }
     } else {
-      dispatch(mainAway())
+      if (position !== "first") {
+        dispatch(aboutAway())
+        dispatch(mainAway())
+        if (projectsPosition === "first") {
+          dispatch(projectsDefault())
+        } else if (contactPosition === "first") {
+          dispatch(contactDefault())
+        }
+        setTimeout(() => {
+          dispatch(aboutTop())
+        }, 300)
+
+        setTimeout(() => {
+          dispatch(aboutFirst())
+          if (contactPosition === "first") {
+            dispatch(contactSecond())
+            dispatch(projectsThird())
+          } else {
+            dispatch(projectsSecond())
+            dispatch(contactThird())
+          }
+        }, 700)
+      } else {
+        dispatch(mainAway())
+      }
     }
   }
 

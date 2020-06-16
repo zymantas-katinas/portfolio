@@ -5,8 +5,11 @@ import {
   projectsAway,
   projectsTop,
   projectsFirst,
+  contactDefault,
+  contactTop,
   contactSecond,
   contactThird,
+  aboutDefault,
   aboutSecond,
   aboutThird,
   mainAway,
@@ -15,29 +18,57 @@ import {
 function Projects() {
   const position = useSelector((state) => state.projectsPosition)
   const aboutPosition = useSelector((state) => state.aboutPosition)
+  const contactPosition = useSelector((state) => state.contactPosition)
   const mainPosition = useSelector((state) => state.mainPosition)
 
   const dispatch = useDispatch()
   const handleClick = () => {
-    if (position !== "first" && position !== "projectsDefault") {
-      dispatch(mainAway())
-      dispatch(projectsAway())
-      setTimeout(() => {
-        dispatch(projectsTop())
-      }, 300)
-      setTimeout(() => {
+    if (window.innerWidth < 600) {
+      if (position !== "first" && position !== "projectsDefault") {
+        dispatch(mainAway())
         dispatch(projectsFirst())
+
         if (aboutPosition === "first") {
-          dispatch(aboutSecond())
-          dispatch(contactThird())
-        } else {
-          dispatch(contactSecond())
           dispatch(aboutThird())
+          dispatch(contactSecond())
+        } else {
+          dispatch(contactThird())
+          dispatch(aboutSecond())
         }
-      }, 700)
-    } else if (position === "projectsDefault") {
-      dispatch(mainAway())
-      dispatch(projectsFirst())
+      } else if (position === "projectsDefault") {
+        dispatch(mainAway())
+        dispatch(projectsFirst())
+      }
+    } else {
+      if (position !== "first" && position !== "projectsDefault") {
+        dispatch(mainAway())
+        dispatch(projectsAway())
+        if (contactPosition === "first") {
+          dispatch(contactDefault())
+        } else if (aboutPosition === "first") {
+          dispatch(aboutDefault())
+        }
+        setTimeout(() => {
+          dispatch(contactTop())
+        }, 300)
+
+        setTimeout(() => {
+          dispatch(projectsTop())
+        }, 300)
+        setTimeout(() => {
+          dispatch(projectsFirst())
+          if (aboutPosition === "first") {
+            dispatch(aboutSecond())
+            dispatch(contactThird())
+          } else {
+            dispatch(contactSecond())
+            dispatch(aboutThird())
+          }
+        }, 700)
+      } else if (position === "projectsDefault") {
+        dispatch(mainAway())
+        dispatch(projectsFirst())
+      }
     }
   }
 

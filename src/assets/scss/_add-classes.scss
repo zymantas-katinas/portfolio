@@ -1,46 +1,61 @@
 .away {
-  top: -100%;
+  // top: -100%;
+  transform: translate(0%, -100%);
   transition: 0.2s cubic-bezier(0.5, 0, 0.75, 0); // changes up animation
 }
 .top {
-  top: -100%;
+  // top: -100%;
+  transform: translate(0%, -100%);
   z-index: 10;
 }
 .first {
-  left: 10%;
-  top: 0;
+  // left: 10%;
+  // top: 0;
+  transform: translate(10%, 0%);
   z-index: 10;
   color: $lightestText;
   & h2 {
     opacity: 1;
   }
   & h2:after {
-    width: 100%;
+    // width: 100%;
+    transform: scaleX(1);
     color: $lightestText;
   }
 }
 .second {
-  left: 28%;
-  top: 0;
+  transform: translate(28%, 0%);
+  // left: 28%;
+  // top: 0;
   z-index: 9;
 }
 .third {
-  left: 45%;
-  top: 0;
+  transform: translate(45%, 0%);
+  // left: 45%;
+  // top: 0;
   z-index: 8;
 }
 
 .projectsDefault {
-  left: 10%;
-  top: 0;
+  transform: translate(10%, 0%);
+  // left: 10%;
+  // top: 0;
   z-index: 10;
 }
+.contactDefault {
+  transform: translate(10%, 0%);
+}
+.aboutDefault {
+  transform: translate(10%, 0%);
+}
 .mainTop {
-  left: -31%;
+  transform: translateX(-31%);
+  // left: -31%;
   z-index: 11;
 }
 .mainAway {
-  left: -100%;
+  transform: translateX(-100%);
+  // left: -100%;
 
   h1 {
     opacity: 0;
@@ -65,9 +80,14 @@
   }
 }
 
+.swap {
+  transform: translateX(-100%);
+}
+
 .fromLeft {
-  left: 0;
-  opacity: 100%;
+  transform: translateX(0%);
+  // left: 0;
+  opacity: 1;
   transition: 1.5s cubic-bezier(0, 0.92, 0, 1.01);
   max-height: auto;
   .project__gallery-images {
@@ -76,7 +96,8 @@
 }
 
 .fromRight {
-  right: 0;
+  transform: translateX(0%);
+  // right: 0;
   opacity: 1;
   transition: 0.5s cubic-bezier(0, 0.65, 0.26, 1.01);
   .project__control {
@@ -85,32 +106,39 @@
 }
 
 .fromBottom {
-  top: 50%;
+  transform: translate(-50%, -50%);
+  // top: 50%;
   opacity: 1;
   transition: 0.5s cubic-bezier(0, 0.65, 0.26, 1.01);
   pointer-events: all;
 }
 
 .fromBottomIcons {
-  top: 87%;
+  // transform: translateY(87%);
+  transform: translateY(-25%);
+  // top: 87%;
   opacity: 1;
-  transition: 1.5s cubic-bezier(0, 0.65, 0.26, 1.01);
+  transition: 2.5s cubic-bezier(0, 0.65, 0.26, 1.01);
   pointer-events: all;
 }
 .fromBottomBar {
-  top: 96%;
+  transform: translateY(-30px);
+  // top: 96%;
   opacity: 1;
-  transition: 1.5s cubic-bezier(0, 0.65, 0.26, 1.01);
 }
 @keyframes up-down {
   0% {
-    top: 8%;
+    transform: translate(-50%, 8%);
+    // top: 8%;
   }
   50% {
-    top: 14%;
+    // top: 14%;
+
+    transform: translate(-50%, 14%);
   }
   100% {
-    top: 8%;
+    // top: 8%;
+    transform: translate(-50%, 8%);
   }
 }
 
@@ -133,13 +161,17 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   transition: 2s ease-in-out;
-  top: 8%;
+  // top: 8%;
+  transform: translateY(8%);
 }
 .rightTriangleBottom {
-  top: 8%;
+  transform: translate(-50%, 8%);
+  // top: 8%;
   transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
 }
 .leftTriangleBottom {
-  top: 12%;
+  // transform: translateY(12%);
+  transform: translate(-50%, 14%);
+  // top: 12%
   transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
 }

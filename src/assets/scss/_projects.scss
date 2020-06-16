@@ -1,20 +1,18 @@
 .projects {
   width: 100%;
+  height: 100%;
   position: fixed;
   z-index: 10;
-  left: 10%;
   top: 0;
+  left: 0;
+  transform: translate(10%, 0%);
   transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1); // changes down animation
-
+  pointer-events: none;
   &__triangle {
     @extend %triangleDown;
   }
 
   & h2 {
-    // -webkit-user-select: none; /* Chrome all / Safari all */
-    // -moz-user-select: none; /* Firefox all */
-    // -ms-user-select: none; /* IE 10+ */
-    // user-select: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     pointer-events: all;
     text-align: right;
@@ -32,16 +30,19 @@
     &:hover {
       opacity: 1;
       &:after {
-        width: 100%;
+        // width: 100%;
+        transform: scaleX(1);
       }
     }
     &:after {
       display: block;
       content: "";
-      width: 0%;
+      // width: 0%;
+      transform: scaleX(0);
+      transform-origin: 0% 100%;
       height: 3px;
       background-color: $lightestText;
-      transition: 0.2s cubic-bezier(0.01, 0.21, 0.35, 1);
+      transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
     }
   }
 }
@@ -55,20 +56,24 @@
   &__info-wrapper {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     display: flex;
     justify-content: flex-end;
     z-index: 100;
     pointer-events: none;
+    right: 10px;
   }
   &__gallery {
     z-index: 100;
     width: 67%;
-    margin-left: 3%;
     position: relative;
-    left: -100%;
-    transition: 0.3s cubic-bezier(0.97, -0.07, 0.9, 0.19);
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: 0.3s cubic-bezier(0.3, 0.42, 0.34, 0.74);
     pointer-events: none;
+    // z-index: 9999;
+    // background-color: white;
+    // height: 100%;
 
     & img {
       width: 100%;
@@ -77,16 +82,13 @@
       object-fit: cover;
       overflow: hidden;
       object-position: top;
-      will-change: scroll-position;
     }
     &-images {
       display: flex;
       flex-direction: column;
-      top: -103px;
       position: absolute;
-      // box-shadow: -48px 0px 26px 57px rgba(0, 0, 0, 0.75);
       max-height: 100%;
-      // will-change: scroll-position;
+      will-change: scroll-position;
     }
   }
 
@@ -97,15 +99,21 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    right: -100%;
+    transform: translateX(100%);
     height: 100%;
     position: absolute;
     transition: 0.3s cubic-bezier(0.97, -0.07, 0.9, 0.19);
-
+    &-text {
+      transition: 1.5s cubic-bezier(0, 0.92, 0, 1.01);
+    }
     & h1 {
       font-size: 1.5rem;
       margin-bottom: 2rem;
       font-weight: 500;
+    }
+    & p {
+      opacity: 1;
+      transition: 1.5s cubic-bezier(0, 0.92, 0, 1.01);
     }
   }
   &__control {
@@ -115,11 +123,19 @@
     z-index: 99999;
     pointer-events: none;
     margin-bottom: 20px;
+    color: white;
+    width: 31%;
+    height: fit-content;
+    bottom: -89%;
+    pointer-events: all;
+    position: absolute;
+    transform: translateX(100%);
     & svg {
       font-size: 3rem;
       height: 100%;
-      opacity: 0.5;
+      opacity: 0.3;
       cursor: pointer;
+      transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
       &:hover {
         opacity: 1;
       }
@@ -130,7 +146,9 @@
     justify-content: space-between;
     width: 31%;
     padding: 0 30px;
-    top: 100%;
+    // top: 100%;
+    bottom: -100%;
+    transform: translateY(0);
     position: absolute;
     height: fit-content;
     z-index: 999999;
@@ -147,10 +165,12 @@
       opacity: 0.3;
       cursor: pointer;
       transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
+      -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
       &:hover {
         opacity: 1;
       }
       & span {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
         color: white;
         top: -21px;
         position: relative;
