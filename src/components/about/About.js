@@ -30,17 +30,17 @@ function About() {
           if (contactPosition === "first") {
             dispatch(contactSecond())
             dispatch(projectsThird())
-          } else if (projectsPosition === "first") {
-            dispatch(projectsThird())
-            dispatch(contactSecond())
+          } else if (projectsPosition === "first" || projectsPosition === "projectsDefault") {
+            dispatch(projectsSecond())
+            dispatch(contactThird())
           }
         } else {
           if (contactPosition === "first") {
             dispatch(contactThird())
             dispatch(projectsSecond())
           } else if (projectsPosition === "first") {
-            dispatch(projectsSecond())
-            dispatch(contactThird())
+            dispatch(projectsThird())
+            dispatch(contactSecond())
           }
         }
       } else {

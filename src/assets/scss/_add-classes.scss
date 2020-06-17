@@ -1,16 +1,12 @@
 .away {
-  // top: -100%;
   transform: translate(0%, -100%);
   transition: 0.2s cubic-bezier(0.5, 0, 0.75, 0); // changes up animation
 }
 .top {
-  // top: -100%;
   transform: translate(0%, -100%);
   z-index: 10;
 }
 .first {
-  // left: 10%;
-  // top: 0;
   transform: translate(10%, 0%);
   z-index: 10;
   color: $lightestText;
@@ -18,28 +14,22 @@
     opacity: 1;
   }
   & h2:after {
-    // width: 100%;
     transform: scaleX(1);
     color: $lightestText;
   }
 }
+
 .second {
   transform: translate(28%, 0%);
-  // left: 28%;
-  // top: 0;
   z-index: 9;
 }
 .third {
   transform: translate(45%, 0%);
-  // left: 45%;
-  // top: 0;
   z-index: 8;
 }
 
 .projectsDefault {
   transform: translate(10%, 0%);
-  // left: 10%;
-  // top: 0;
   z-index: 10;
 }
 .contactDefault {
@@ -50,13 +40,10 @@
 }
 .mainTop {
   transform: translateX(-31%);
-  // left: -31%;
   z-index: 11;
 }
 .mainAway {
   transform: translateX(-100%);
-  // left: -100%;
-
   h1 {
     opacity: 0;
   }
@@ -80,43 +67,36 @@
   }
 }
 
-.swap {
-  transform: translateX(-100%);
-}
-
 .fromLeft {
   transform: translateX(0%);
-  // left: 0;
   opacity: 1;
   transition: 1.5s cubic-bezier(0, 0.92, 0, 1.01);
   max-height: auto;
   .project__gallery-images {
-    max-height: fit-content;
+    //   max-height: fit-content;
+  }
+  .project__info {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: 1.3s cubic-bezier(0.56, 0.05, 0, 1.01);
   }
 }
 
 .fromRight {
   transform: translateX(0%);
-  // right: 0;
   opacity: 1;
   transition: 0.5s cubic-bezier(0, 0.65, 0.26, 1.01);
-  .project__control {
-    pointer-events: all;
-  }
 }
 
 .fromBottom {
   transform: translate(-50%, -50%);
-  // top: 50%;
   opacity: 1;
   transition: 0.5s cubic-bezier(0, 0.65, 0.26, 1.01);
   pointer-events: all;
 }
 
 .fromBottomIcons {
-  // transform: translateY(87%);
   transform: translateY(-25%);
-  // top: 87%;
   opacity: 1;
   transition: 2.5s cubic-bezier(0, 0.65, 0.26, 1.01);
   pointer-events: all;
@@ -129,16 +109,23 @@
 @keyframes up-down {
   0% {
     transform: translate(-50%, 8%);
-    // top: 8%;
   }
   50% {
-    // top: 14%;
-
     transform: translate(-50%, 14%);
   }
   100% {
-    // top: 8%;
     transform: translate(-50%, 8%);
+  }
+}
+@keyframes left-up-down {
+  0% {
+    transform: translate(-50%, 14%);
+  }
+  50% {
+    transform: translate(-50%, 18%);
+  }
+  100% {
+    transform: translate(-50%, 14%);
   }
 }
 
@@ -154,6 +141,14 @@
   }
 }
 
+.rightTriangleBottom {
+  transform: translate(-50%, 8%);
+  transition: 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+.leftTriangleBottom {
+  transform: translate(-50%, 14%);
+  transition: 1.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
+}
 .moveUpDown {
   animation-name: up-down;
   animation-duration: 10s;
@@ -161,17 +156,14 @@
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
   transition: 2s ease-in-out;
-  // top: 8%;
-  transform: translateY(8%);
-}
-.rightTriangleBottom {
   transform: translate(-50%, 8%);
-  // top: 8%;
-  transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
 }
-.leftTriangleBottom {
-  // transform: translateY(12%);
+.leftMoveUpDown {
+  animation-name: left-up-down;
+  animation-duration: 10s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transition: 2s ease-in-out;
   transform: translate(-50%, 14%);
-  // top: 12%
-  transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
 }

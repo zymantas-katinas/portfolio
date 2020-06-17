@@ -1,6 +1,5 @@
 .contact {
   @extend .projects;
-  // left: 45%;
   z-index: 8;
   &__triangle {
     @extend %triangleDown;
@@ -69,14 +68,11 @@
       cursor: pointer;
       transition-duration: 0.25s;
       transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-      // background: $lightText;
       border-radius: 3px;
-      // color: $background;
       background-color: transparent;
       color: $lightestText;
       border: 2px solid $lightestText;
       text-align: center;
-      // border: none;
       width: fit-content;
       cursor: pointer;
       height: 42px;
@@ -91,8 +87,6 @@
         background-color: $hover;
       }
       &:disabled {
-        // background-color: $disabled;
-        // color: $background;
         background-color: transparent;
         color: #565459;
         border: 2px solid #908b94;

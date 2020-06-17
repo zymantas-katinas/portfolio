@@ -27,13 +27,22 @@ function Projects() {
       if (position !== "first" && position !== "projectsDefault") {
         dispatch(mainAway())
         dispatch(projectsFirst())
-
-        if (aboutPosition === "first") {
-          dispatch(aboutThird())
-          dispatch(contactSecond())
+        if (position === "second") {
+          if (aboutPosition === "first") {
+            dispatch(aboutSecond())
+            dispatch(contactThird())
+          } else {
+            dispatch(contactSecond())
+            dispatch(aboutThird())
+          }
         } else {
-          dispatch(contactThird())
-          dispatch(aboutSecond())
+          if (aboutPosition === "first") {
+            dispatch(aboutThird())
+            dispatch(contactSecond())
+          } else {
+            dispatch(contactThird())
+            dispatch(aboutSecond())
+          }
         }
       } else if (position === "projectsDefault") {
         dispatch(mainAway())
@@ -48,9 +57,6 @@ function Projects() {
         } else if (aboutPosition === "first") {
           dispatch(aboutDefault())
         }
-        setTimeout(() => {
-          dispatch(contactTop())
-        }, 300)
 
         setTimeout(() => {
           dispatch(projectsTop())
@@ -75,9 +81,11 @@ function Projects() {
   return (
     <div>
       <Project ifShow={position === "first" && mainPosition === "mainAway"} />
+
       <div className={`projects ${position}`}>
         <div className="projects__triangle">
           <h2 onClick={handleClick}>Projects</h2>
+          {/* <div className="project__bg"></div> */}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 // colors
-$triangle: #49445036;
+$triangle: #6edfb52e;
 $background: #24212d;
 $lightText: #dbd6e26c;
 $lightestText: #ffffffdb;
@@ -16,10 +16,12 @@ $disabled: #36333c;
   background-color: $triangle;
   position: fixed;
   pointer-events: none;
+  mix-blend-mode: hard-light;
 }
 %triangleUp {
   @extend %triangleDown;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  mix-blend-mode: luminosity;
 }
 
 html,
@@ -34,8 +36,9 @@ body {
   -webkit-font-smoothing: antialiased;
   will-change: scroll-position;
 }
+
 .loading-screen {
-  position: absolute;
+  position: fixed;
   height: 100%;
   width: 100%;
   background-color: #353674;
@@ -68,7 +71,6 @@ body {
   position: fixed;
   z-index: 12;
   color: $lightText;
-  // top: 100%;
   bottom: 0;
   transform: translateY(100%);
   opacity: 0;
@@ -178,14 +180,15 @@ body {
 .leftTriangle {
   @extend %triangleUp;
   left: 67px;
-  // top: 100%;
   transform: translate(-50%, 100%);
+
+  transition: 2s ease-in-out;
 }
 
 .rightTriangle {
   @extend %triangleUp;
-  left: 92%;
-  // top: 100%;
+  // left: 92%;
+  right: -52%;
   transform: translate(-50%, 100%);
   transition: 2s ease-in-out;
 }
