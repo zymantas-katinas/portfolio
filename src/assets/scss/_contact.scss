@@ -1,6 +1,7 @@
 .contact {
   @extend .projects;
   z-index: 8;
+  left: 40%;
   &__triangle {
     @extend %triangleDown;
   }
