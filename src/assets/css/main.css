@@ -360,7 +360,7 @@ body {
   position: fixed;
   z-index: 10;
   top: 0;
-  left: 0;
+  left: 9%;
   -webkit-transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1);
   transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1);
   pointer-events: none;
@@ -504,7 +504,7 @@ body {
 
 .about {
   z-index: 9;
-  left: 20%;
+  left: 28%;
 }
 
 .about__info {
@@ -550,7 +550,7 @@ body {
 
 .contact {
   z-index: 8;
-  left: 40%;
+  left: 45%;
 }
 
 .contact__content {
