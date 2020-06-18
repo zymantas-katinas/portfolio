@@ -8,9 +8,6 @@
   &__info {
     &-left {
       position: relative;
-      transform: translateX(-50%);
-      opacity: 0;
-      transition: 0.5s cubic-bezier(0.1, 0.54, 0.05, 0.79);
     }
     color: $lightestText;
     position: absolute;

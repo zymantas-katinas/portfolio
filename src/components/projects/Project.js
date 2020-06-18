@@ -3,8 +3,7 @@ import projectsData from "./projectData.json"
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css"
 
-function Project(props) {
-  // get all project images
+function Project() {
   const allProjects = projectsData.map((item) => {
     const images = item.img.map((item) => {
       return <img key={item} src={item}></img>
@@ -39,7 +38,7 @@ function Project(props) {
   }, [])
 
   return (
-    <div className={`swiper-container ${props.ifShow ? "fromLeft" : null} `}>
+    <div className="swiper-container">
       <div className="swiper-wrapper">{allProjects}</div>
       <div className="swiper-pagination"></div>
     </div>

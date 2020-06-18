@@ -4,41 +4,21 @@ export const mainAway = () => {
     type: "MAIN_AWAY",
   }
 }
-export const mainOnTop = () => {
+export const mainSelected = () => {
   return {
-    type: "MAIN_ON_TOP",
+    type: "MAIN_SELECTED",
   }
 }
 
 // CONTACT
-export const contactDefault = () => {
+export const contactSelected = () => {
   return {
-    type: "CONTACT_DEFAULT",
+    type: "CONTACT_SELECTED",
   }
 }
 export const contactAway = () => {
   return {
     type: "CONTACT_AWAY",
-  }
-}
-export const contactTop = () => {
-  return {
-    type: "CONTACT_TOP",
-  }
-}
-export const contactFirst = () => {
-  return {
-    type: "CONTACT_FIRST",
-  }
-}
-export const contactSecond = () => {
-  return {
-    type: "CONTACT_SECOND",
-  }
-}
-export const contactThird = () => {
-  return {
-    type: "CONTACT_THIRD",
   }
 }
 
@@ -48,60 +28,20 @@ export const projectsAway = () => {
     type: "PROJECTS_AWAY",
   }
 }
-export const projectsTop = () => {
+export const projectsSelected = () => {
   return {
-    type: "PROJECTS_TOP",
-  }
-}
-export const projectsFirst = () => {
-  return {
-    type: "PROJECTS_FIRST",
-  }
-}
-export const projectsSecond = () => {
-  return {
-    type: "PROJECTS_SECOND",
-  }
-}
-export const projectsThird = () => {
-  return {
-    type: "PROJECTS_THIRD",
-  }
-}
-export const projectsDefault = () => {
-  return {
-    type: "PROJECTS_DEFAULT",
+    type: "PROJECTS_SELECTED",
   }
 }
 
 //ABOUT
-export const aboutDefault = () => {
+export const aboutSelected = () => {
   return {
-    type: "ABOUT_DEFAULT",
+    type: "ABOUT_SELECTED",
   }
 }
 export const aboutAway = () => {
   return {
     type: "ABOUT_AWAY",
-  }
-}
-export const aboutTop = () => {
-  return {
-    type: "ABOUT_TOP",
-  }
-}
-export const aboutFirst = () => {
-  return {
-    type: "ABOUT_FIRST",
-  }
-}
-export const aboutSecond = () => {
-  return {
-    type: "ABOUT_SECOND",
-  }
-}
-export const aboutThird = () => {
-  return {
-    type: "ABOUT_THIRD",
   }
 }

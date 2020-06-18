@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { ReactComponent as AlertIcon } from "../assets/images/alert.svg"
 
-const ContactForm = (props) => {
+const ContactForm = () => {
   const firstNameRender = useRef(true)
   const firstEmailRender = useRef(true)
   const [disable, setDisabled] = useState(true)
@@ -63,11 +63,9 @@ const ContactForm = (props) => {
   }
 
   return (
-    <div className={`contact__form ${props.ifShow ? "fromBottom" : null}`}>
+    <div className="contact__form">
       <form onSubmit={handleSave}>
-        <p className="contact__info-top">
-          Fill out your details, and I will get back to you shortly:
-        </p>
+        <p className="contact__info-top">Fill out your details, and I will get back to you shortly:</p>
 
         <div className="contact__input">
           <input
@@ -76,11 +74,7 @@ const ContactForm = (props) => {
             value={nameInput}
             placeholder="Name"
             onChange={(e) => setNameInput(e.target.value)}
-            style={
-              nameError !== null
-                ? { border: "2px solid rgb(185, 55, 71)" }
-                : null
-            }
+            style={nameError !== null ? { border: "2px solid rgb(185, 55, 71)" } : null}
           />
           {nameError && (
             <div className="contact__error">
@@ -97,11 +91,7 @@ const ContactForm = (props) => {
             placeholder="Email"
             value={emailInput}
             onChange={(e) => setEmailInput(e.target.value)}
-            style={
-              emailError !== null
-                ? { border: "2px solid rgb(185, 55, 71)" }
-                : null
-            }
+            style={emailError !== null ? { border: "2px solid rgb(185, 55, 71)" } : null}
           />
           {emailError && (
             <div className="contact__error">

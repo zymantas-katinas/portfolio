@@ -38,18 +38,18 @@ body {
 }
 
 .loading-screen {
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: #353674;
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  opacity: 1;
-  transition: 0.2s cubic-bezier(0, 1.06, 0, 0.98);
-  pointer-events: none;
+  // position: fixed;
+  // height: 100%;
+  // width: 100%;
+  // background-color: #353674;
+  // z-index: 9999;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // color: white;
+  // opacity: 1;
+  // transition: 0.2s cubic-bezier(0, 1.06, 0, 0.98);
+  // pointer-events: none;
 }
 .logo {
   font-size: 3rem;
@@ -72,12 +72,8 @@ body {
   z-index: 12;
   color: $lightText;
   bottom: 0;
-  transform: translateY(100%);
-  opacity: 0;
   &__status {
     bottom: 12px;
-    opacity: 0;
-    transition: 0.3s cubic-bezier(0.63, 0.71, 0.23, 1.04);
     font-size: 0.8rem;
     margin-right: 4%;
     position: absolute;
@@ -180,15 +176,11 @@ body {
 .leftTriangle {
   @extend %triangleUp;
   left: 67px;
-  transform: translate(-50%, 100%);
-
-  transition: 2s ease-in-out;
+  transform: translateX(-50%);
 }
 
 .rightTriangle {
   @extend %triangleUp;
-  // left: 92%;
   right: -52%;
-  transform: translate(-50%, 100%);
-  transition: 2s ease-in-out;
+  transform: translateX(-50%);
 }
