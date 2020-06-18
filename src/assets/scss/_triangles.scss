@@ -1,0 +1,68 @@
+// LEFT TRIANGLE
+.leftTriangle {
+  @extend %triangleUp;
+  left: 67px;
+  transform: translate(-50%, 100%);
+  transition: 2s ease-in-out;
+}
+.leftTriangleBottom {
+  transform: translate(-50%, 14%);
+  transition: 0.7s cubic-bezier(0.63, 0.71, 0.23, 1.04);
+}
+
+@keyframes left-up-down {
+  0% {
+    transform: translate(-50%, 14%);
+  }
+  50% {
+    transform: translate(-50%, 18%);
+  }
+  100% {
+    transform: translate(-50%, 14%);
+  }
+}
+.leftMoveUpDown {
+  animation-name: left-up-down;
+  animation-duration: 6s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transition: 2s ease-in-out;
+  transform: translate(-50%, 14%);
+}
+
+// RIGHT TRIANGLE
+.rightTriangle {
+  @extend %triangleUp;
+  right: -52%;
+  transform: translate(-50%, 100%);
+  //   transition: 2s linear all;
+  transition: 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+.rightTriangleBottom {
+  transform: translate(-50%, 8%);
+  animation: none;
+  //   transition: 0.7s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.moveUpDown {
+  animation-name: up-down;
+  animation-duration: 8s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  //   animation-timing-function: ease-in-out;
+  transition: 2s ease-in-out;
+  transform: translate(-50%, 14%);
+}
+
+@keyframes up-down {
+  0% {
+    transform: translate(-50%, 8%);
+  }
+  50% {
+    transform: translate(-50%, 14%);
+  }
+  100% {
+    transform: translate(-50%, 8%);
+  }
+}

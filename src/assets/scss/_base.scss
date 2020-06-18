@@ -176,19 +176,3 @@ body {
     border: 10px solid $background;
   }
 }
-
-.leftTriangle {
-  @extend %triangleUp;
-  left: 67px;
-  transform: translate(-50%, 100%);
-
-  transition: 2s ease-in-out;
-}
-
-.rightTriangle {
-  @extend %triangleUp;
-  // left: 92%;
-  right: -52%;
-  transform: translate(-50%, 100%);
-  transition: 2s ease-in-out;
-}

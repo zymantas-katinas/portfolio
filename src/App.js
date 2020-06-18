@@ -14,6 +14,7 @@ function App() {
   const [ifShowLoadingScreen, setIfShowLoadingScreen] = useState(true)
   const [ifShowRightTriangle, setIfShowRightTriangle] = useState(false)
   const [ifShowLeftTriangle, setIfShowLeftTriangle] = useState(false)
+  const [moveRightTriangle, setMoveRightTriangle] = useState(false)
 
   const matrix = `matrix3d(1, 0, 0, ${side}, 0, 1, 0, ${up}, 0, 0, 1, 0, 0, 0, 0, 1)`
   const dispatch = useDispatch()
@@ -51,6 +52,11 @@ function App() {
       setIfShowRightTriangle(true)
     }, 1200)
     setTimeout(() => {
+      if (contactPosition !== "first") {
+        setMoveRightTriangle(true)
+      }
+    }, 1500)
+    setTimeout(() => {
       dispatch(contactThird())
     }, 1450)
     setTimeout(() => {
@@ -74,8 +80,16 @@ function App() {
         ZK&nbsp;&nbsp;&nbsp;.
       </div>
       <div className="frame"></div>
-      <div className={`leftTriangle ${ifShowLeftTriangle ? "leftTriangleBottom" : null}`}></div>
-      <div className={`rightTriangle ${ifShowRightTriangle ? "rightTriangleBottom" : null}`}></div>
+      <div
+        className={`leftTriangle ${ifShowLeftTriangle ? "leftTriangleBottom" : null} ${
+          ifShowLeftTriangle && mainPosition === "mainAway" ? "leftMoveUpDown" : null
+        }`}
+      ></div>
+      <div
+        className={`rightTriangle ${ifShowRightTriangle ? "rightTriangleBottom" : null} ${
+          contactPosition === "third" && moveRightTriangle ? "moveUpDown" : null
+        } `}
+      ></div>
       <Main />
       <Projects />
       <About />
