@@ -49,7 +49,6 @@ a:not([class]):hover {
 }
 
 img {
-  max-width: 100%;
   display: block;
 }
 
@@ -61,18 +60,19 @@ select {
 }
 
 .leftTriangle, .rightTriangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
-  height: 100%;
+  height: 100vh;
   width: 60%;
   -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
           clip-path: polygon(50% 100%, 0 0, 100% 0);
-  padding: 1.3rem 12.5% 0 0;
-  background-color: #6edfb52e;
-  position: fixed;
+  padding: 2rem 12.5% 0 0;
+  background-color: #3be69f14;
+  position: absolute;
   pointer-events: none;
-  mix-blend-mode: hard-light;
+  bottom: 10px;
 }
 
 .leftTriangle, .rightTriangle {
+  top: 0;
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   mix-blend-mode: luminosity;
@@ -85,10 +85,16 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: #24212d;
+  background-color: #1b3a48;
   position: relative;
   -webkit-font-smoothing: antialiased;
   will-change: scroll-position;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.loading-screen {
+  position: absolute;
 }
 
 .logo {
@@ -99,7 +105,7 @@ body {
   font-weight: 600;
   letter-spacing: -10px;
   z-index: 99;
-  position: fixed;
+  position: absolute;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -119,18 +125,18 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  position: fixed;
+  position: absolute;
   z-index: 12;
   color: #dbd6e26c;
-  bottom: 0;
+  bottom: 20px;
 }
 
 .bottom-info__status {
-  bottom: 12px;
-  font-size: 0.8rem;
+  bottom: -1px;
+  font-size: 0.7rem;
   margin-right: 4%;
   position: absolute;
-  right: 0;
+  right: -16px;
 }
 
 .bottom-info__status h2 {
@@ -246,9 +252,9 @@ body {
   display: block;
   width: 100vw;
   height: 100%;
-  border: 10px solid #24212d;
+  border: 12px solid #11272f;
   z-index: 999999;
-  position: fixed;
+  position: absolute;
   pointer-events: none;
   border-radius: 22px;
 }
@@ -257,11 +263,11 @@ body {
   display: block;
   content: "";
   position: absolute;
-  top: -10px;
-  left: -10px;
+  top: -12px;
+  left: -12px;
   width: 100vw;
   height: 100vh;
-  border: 10px solid #24212d;
+  border: 12px solid #11272f;
 }
 
 .leftTriangle {
@@ -278,20 +284,17 @@ body {
 
 .main {
   height: 100vh;
-  left: 0%;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
+  left: -33%;
   width: 100%;
   position: fixed;
   pointer-events: none;
-  z-index: 11;
-  -webkit-transition: 2s cubic-bezier(0, 1.13, 0.21, 0.99);
-  transition: 2s cubic-bezier(0, 1.13, 0.21, 0.99);
+}
+
+.main__triangle {
+  z-index: 9999;
 }
 
 .main__heading {
-  -webkit-transition: 0.5s cubic-bezier(0.49, 0.64, 0, 0.91);
-  transition: 0.5s cubic-bezier(0.49, 0.64, 0, 0.91);
   opacity: 0.85;
   position: relative;
   top: 45%;
@@ -311,8 +314,9 @@ body {
 
 .main__text {
   position: relative;
-  bottom: -68%;
+  bottom: -62%;
   left: 34%;
+  margin: 30px;
   text-transform: uppercase;
   text-align: left;
   z-index: 10;
@@ -322,6 +326,11 @@ body {
   width: 28%;
 }
 
+.main__text a {
+  pointer-events: all;
+  cursor: pointer;
+}
+
 .projects, .about, .contact {
   width: 100%;
   height: 100%;
@@ -329,8 +338,6 @@ body {
   z-index: 10;
   top: 0;
   left: 9%;
-  -webkit-transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1);
-  transition: 0.5s cubic-bezier(0, 1.04, 0.01, 1);
   pointer-events: none;
 }
 
@@ -384,8 +391,6 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: 100 !important;
-  -webkit-transform: translateX(-100%);
-          transform: translateX(-100%);
   position: fixed !important;
   pointer-events: none;
   -webkit-transition: 0.4s cubic-bezier(0.56, 0.05, 0, 1.01);
@@ -404,14 +409,17 @@ body {
 
 .swiper-pagination {
   top: 16%;
-  right: 10px;
-  width: 33%;
+  right: 10px !important;
+  width: 33% !important;
   padding-left: 40px;
+  left: auto !important;
 }
 
 .swiper-pagination span {
   background-color: white;
-  margin: 0 10px;
+  margin: 0 11px !important;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .project {
@@ -425,13 +433,15 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   height: 100vh;
-  z-index: 100;
+  position: relative;
+  z-index: 9999;
 }
 
 .project__gallery {
   width: 67%;
   top: -50px;
   position: absolute;
+  z-index: 100;
   height: 100%;
   overflow: auto;
 }
@@ -449,13 +459,6 @@ body {
           flex-direction: column;
   position: relative;
   left: 67%;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, #24212ddb), to(rgba(60, 40, 93, 0)));
-  background: linear-gradient(0deg, #24212ddb 50%, rgba(60, 40, 93, 0) 100%);
-  opacity: 0;
-  -webkit-transition: 0.5s ease-out;
-  transition: 0.5s ease-out;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
 }
 
 .project__info h1 {
@@ -490,6 +493,35 @@ body {
 .about__info p {
   text-align: center;
   padding: 50px 0 0 0;
+}
+
+.about__info a {
+  margin-top: 20px;
+  z-index: 99999;
+  pointer-events: all;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.about__info a:hover:after {
+  width: 100%;
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.about__info a:after {
+  display: block;
+  content: "";
+  width: 100%;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  height: 2px;
+  background-color: #ffffffdb;
+  -webkit-transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
+  transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
 }
 
 .about__info h1 {
@@ -548,15 +580,12 @@ body {
   color: #ffffffdb;
   left: 50%;
   top: 50%;
-  opacity: 0;
   position: fixed;
   width: 35%;
   z-index: 100;
-  -webkit-transform: translate(-50%, 120%);
-          transform: translate(-50%, 120%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   pointer-events: none;
-  -webkit-transition: 0.5s cubic-bezier(0, 0.81, 0, 0.89);
-  transition: 0.5s cubic-bezier(0, 0.81, 0, 0.89);
 }
 
 .contact__form form {
@@ -659,7 +688,7 @@ body {
 
 .contact__form button:disabled {
   background-color: transparent;
-  color: #565459;
+  color: #ffffff46;
   border: 2px solid #908b94;
 }
 

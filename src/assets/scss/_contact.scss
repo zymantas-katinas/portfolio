@@ -22,14 +22,11 @@
     color: $lightestText;
     left: 50%;
     top: 50%;
-    opacity: 0;
     position: fixed;
     width: 35%;
     z-index: 100;
-    transform: translate(-50%, 120%);
+    transform: translate(-50%, -50%);
     pointer-events: none;
-    transition: 0.5s cubic-bezier(0, 0.81, 0, 0.89);
-
     form {
       height: 100%;
       display: flex;
@@ -89,7 +86,7 @@
       }
       &:disabled {
         background-color: transparent;
-        color: #565459;
+        color: #ffffff46;
         border: 2px solid #908b94;
       }
     }

@@ -1,22 +1,28 @@
 import React from "react"
-import { useSelector, useDispatch } from "react-redux"
-// import { mainAway, mainOnTop } from "../actions"
+import { useSelector } from "react-redux"
+import { AnimatePresence, motion } from "framer-motion"
+import { mainVariants } from "../variants"
 
 function Main() {
   const position = useSelector((state) => state.mainPosition)
-  const dispatch = useDispatch()
 
   return (
-    <div className="main">
-      <div className="main__triangle"></div>
-      <h1 className="main__heading">
-        I <span>Design</span> <br /> and <span>Develop</span> <br />
-        Unique <span>Websites.</span>
-      </h1>
-      <div className="main__text">
-        <p>“A creative person With developers Mindset.”</p>
-      </div>
-    </div>
+    <AnimatePresence>
+      {position && (
+        <motion.div variants={mainVariants} initial="hidden" animate="visible" exit="hidden">
+          <div className="main">
+            <div className="main__triangle"></div>
+            <h1 className="main__heading">
+              I <span>Design</span> <br /> and <span>Develop</span> <br />
+              Unique <span>Websites.</span>
+            </h1>
+            <div className="main__text">
+              <p>“A creative person With developers Mindset.”</p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
 }
 

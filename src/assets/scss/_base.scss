@@ -1,6 +1,9 @@
 // colors
-$triangle: #6edfb52e;
-$background: #24212d;
+// $triangle: #6edfb52e;
+$triangle: #3be69f14;
+// $background: #24212d;
+$background: #1b3a48;
+$frame: #11272f;
 $lightText: #dbd6e26c;
 $lightestText: #ffffffdb;
 $logoColor: #dfdfdf;
@@ -9,17 +12,20 @@ $active: #347f7c;
 $disabled: #36333c;
 
 %triangleDown {
-  height: 100%;
+  height: 100vh;
   width: 60%;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
-  padding: 1.3rem 12.5% 0 0;
+  padding: 2rem 12.5% 0 0;
   background-color: $triangle;
-  position: fixed;
+  // position: absolute;
+  position: absolute;
   pointer-events: none;
-  mix-blend-mode: hard-light;
+  // mix-blend-mode: hard-light;
+  bottom: 10px;
 }
 %triangleUp {
   @extend %triangleDown;
+  top: 0;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   mix-blend-mode: luminosity;
 }
@@ -35,10 +41,12 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   will-change: scroll-position;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .loading-screen {
-  // position: fixed;
+  position: absolute;
   // height: 100%;
   // width: 100%;
   // background-color: #353674;
@@ -59,7 +67,7 @@ body {
   font-weight: 600;
   letter-spacing: -10px;
   z-index: 99;
-  position: fixed;
+  position: absolute;
   cursor: pointer;
   user-select: none;
 }
@@ -68,16 +76,16 @@ body {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  position: fixed;
+  position: absolute;
   z-index: 12;
   color: $lightText;
-  bottom: 0;
+  bottom: 20px;
   &__status {
-    bottom: 12px;
-    font-size: 0.8rem;
+    bottom: -1px;
+    font-size: 0.7rem;
     margin-right: 4%;
     position: absolute;
-    right: 0;
+    right: -16px;
     & h2 {
       font-weight: 300;
       & span {
@@ -156,20 +164,20 @@ body {
   display: block;
   width: 100vw;
   height: 100%;
-  border: 10px solid $background;
+  border: 12px solid $frame;
   z-index: 999999;
-  position: fixed;
+  position: absolute;
   pointer-events: none;
   border-radius: 22px;
   &:after {
     display: block;
     content: "";
     position: absolute;
-    top: -10px;
-    left: -10px;
+    top: -12px;
+    left: -12px;
     width: 100vw;
     height: 100vh;
-    border: 10px solid $background;
+    border: 12px solid $frame;
   }
 }
 

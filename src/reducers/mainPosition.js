@@ -1,9 +1,9 @@
-const mainPositionReducer = (state = "mainAway", action) => {
+const mainPositionReducer = (state = true, action) => {
   switch (action.type) {
     case "MAIN_AWAY":
-      return "mainAway"
+      return false
     case "MAIN_SELECTED":
-      return "mainSelected"
+      return true
     default:
       return state
   }

@@ -5,18 +5,16 @@ import About from "./components/about/About"
 import Projects from "./components/projects/Projects"
 import Contact from "./components/Contact"
 import Icons from "./components/Icons"
-// import { useDispatch, useSelector } from "react-redux"
-// import { projectsDefault, contactThird, aboutSecond, mainOnTop } from "./actions"
+import { useDispatch } from "react-redux"
+import { mainSelected, contactAway, aboutAway, projectsAway } from "./actions"
+import { motion } from "framer-motion"
 
 function App() {
   const [side, setSide] = useState(0)
   const [up, setUp] = useState(0)
 
   const matrix = `matrix3d(1, 0, 0, ${side}, 0, 1, 0, ${up}, 0, 0, 1, 0, 0, 0, 0, 1)`
-  // const dispatch = useDispatch()
-  // const mainPosition = useSelector((state) => state.mainPosition)
-  // const contactPosition = useSelector((state) => state.contactPosition)
-  // const projectsPosition = useSelector((state) => state.projectsPosition)
+  const dispatch = useDispatch()
 
   const handleMouseMove = (e) => {
     const posUp = e.pageY - window.innerHeight / 2
@@ -25,15 +23,26 @@ function App() {
     setUp(posUp / 150000)
   }
 
+  const handleClick = () => {
+    dispatch(mainSelected())
+    dispatch(aboutAway())
+    dispatch(projectsAway())
+    dispatch(contactAway())
+  }
+
   return (
     <div className="App" onMouseMove={handleMouseMove}>
       <div className="loading-screen"></div>
-      <div className="logo" style={{ transform: matrix }}>
+      <div className="logo" style={{ transform: matrix }} onClick={handleClick}>
         ZK&nbsp;&nbsp;&nbsp;.
       </div>
       <div className="frame"></div>
-      <div className="leftTriangle"></div>
-      <div className="rightTriangle"></div>
+      <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
+        <div className="leftTriangle"></div>
+      </motion.div>
+      <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 50 }} transition={{ duration: 2 }}>
+        <div className="rightTriangle"></div>
+      </motion.div>
       <Main />
       <Projects />
       <About />

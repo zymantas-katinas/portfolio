@@ -1,31 +1,51 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import projectsData from "./projectData.json"
+import { useSelector } from "react-redux"
+import { AnimatePresence, motion } from "framer-motion"
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css"
+import { projectInfoVariants } from "../../variants"
 
 function Project() {
+  const position = useSelector((state) => state.projectsPosition)
+
   const allProjects = projectsData.map((item) => {
     const images = item.img.map((item) => {
-      return <img key={item} src={item}></img>
+      return (
+        <div className="project__image">
+          <img key={item} src={item} alt="project" />
+        </div>
+      )
     })
     return (
-      <div className="swiper-slide">
+      <div className="swiper-slide" key={item.title}>
         <div className="project">
-          <div className="project__info">
-            <div className="project__info-text">
-              <h1>{item.title}</h1>
-              <p>{item.paragraph}</p>
-            </div>
-          </div>
+          <AnimatePresence>
+            {position && (
+              <motion.div
+                variants={projectInfoVariants}
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                className="project__info"
+              >
+                <div className="project__info-text">
+                  <h1>{item.title}</h1>
+                  <p>{item.paragraph}</p>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <div className="project__gallery">{images}</div>
         </div>
       </div>
     )
   })
 
-  let [mySwiper, setMySwiper] = useState(null)
+  // let [mySwiper, setMySwiper] = useState(null)
+
   useEffect(() => {
-    let mySwiper = new Swiper(".swiper-container", {
+    new Swiper(".swiper-container", {
       loop: true,
       slidesPerView: "1",
       centeredSlides: true,
@@ -34,7 +54,6 @@ function Project() {
         clickable: true,
       },
     })
-    setMySwiper(mySwiper)
   }, [])
 
   return (

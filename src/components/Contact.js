@@ -1,12 +1,15 @@
 import React from "react"
 import ContactForm from "./ContactForm"
 import { useSelector, useDispatch } from "react-redux"
-import { aboutAway, mainAway, projectsAway } from "../../actions"
+import { contactSelected, aboutAway, mainAway, projectsAway } from "../actions"
+import { AnimatePresence, motion } from "framer-motion"
+import { contactVariants } from "../variants"
 
 function Contact() {
   const position = useSelector((state) => state.contactPosition)
-
+  const dispatch = useDispatch()
   const handleClick = () => {
+    dispatch(contactSelected())
     dispatch(projectsAway())
     dispatch(mainAway())
     dispatch(aboutAway())
@@ -19,7 +22,14 @@ function Contact() {
           <h2 onClick={handleClick}>Hire Me</h2>
         </div>
       </div>
-      {position === "contactSelected" ? <ContactForm /> : null}
+      <AnimatePresence>
+        {position && (
+          <motion.div variants={contactVariants} initial="hidden" animate="visible" exit="hidden">
+            {" "}
+            <ContactForm />{" "}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
