@@ -17,18 +17,19 @@ function About() {
   }
 
   return (
-    <div className="about">
-      <div className="about__triangle">
+    <motion.div
+      initial={{ y: "-100vh" }}
+      animate={{ y: "0vh" }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="about"
+    >
+      <div className={`about__triangle ${position && "selected"}`}>
         <h2 onClick={handleClick}>Who am I?</h2>
-        <AnimatePresence>
-          {position && (
-            <motion.div variants={aboutVariants} initial="hidden" animate="visible" exit="hidden">
-              <AboutMe />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <motion.div initial={false} animate={position ? "open" : "closed"}>
+          <AboutMe />
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react"
 import { ReactComponent as AlertIcon } from "../assets/images/alert.svg"
+import { motion } from "framer-motion"
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const firstNameRender = useRef(true)
   const firstEmailRender = useRef(true)
   const [disable, setDisabled] = useState(true)
@@ -62,12 +63,40 @@ const ContactForm = () => {
     // submit
   }
 
-  return (
-    <div className="contact__form">
-      <form onSubmit={handleSave}>
-        <p className="contact__info-top">Fill out your details, and I will get back to you shortly:</p>
+  const variants = {
+    open: {
+      transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    },
+    closed: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
+  }
 
-        <div className="contact__input">
+  const childVariants = {
+    open: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        y: { stiffness: 1000, velocity: -100 },
+      },
+    },
+    closed: {
+      y: 50,
+      opacity: 0,
+      transition: {
+        y: { stiffness: 1000 },
+      },
+    },
+  }
+  const pointerEvents = props.position ? { pointerEvents: "all" } : { pointerEvents: "none" }
+  return (
+    <motion.div className="contact__form" variants={variants} style={pointerEvents}>
+      <form onSubmit={handleSave}>
+        <motion.p className="contact__info-top" variants={childVariants}>
+          Fill out your details, and I will get back to you shortly:
+        </motion.p>
+
+        <motion.div className="contact__input" variants={childVariants} whileHover={{ scale: 1.03 }}>
           <input
             type="text"
             name="nameInput"
@@ -82,9 +111,9 @@ const ContactForm = () => {
               <p>{nameError}</p>
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <div className="contact__input">
+        <motion.div className="contact__input" variants={childVariants} whileHover={{ scale: 1.03 }}>
           <input
             type="text"
             name="emailInput"
@@ -99,21 +128,30 @@ const ContactForm = () => {
               <p>{emailError}</p>
             </div>
           )}
-        </div>
+        </motion.div>
 
-        <textarea
+        <motion.textarea
+          variants={childVariants}
           name="message"
           placeholder="Your Message"
           value={messageInput}
           onChange={(e) => setMessageInput(e.target.value)}
-        ></textarea>
+          whileHover={{ scale: 1.03 }}
+        ></motion.textarea>
 
         {/* <p className="contact__info-bottom">If you are having trouble</p> */}
-        <button className="button-medium" type="submit" disabled={disable}>
+        <motion.button
+          className="button-medium"
+          type="submit"
+          disabled={disable}
+          variants={childVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           Submit
-        </button>
+        </motion.button>
       </form>
-    </div>
+    </motion.div>
   )
 }
 

@@ -40,9 +40,7 @@ function App() {
       <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
         <div className="leftTriangle"></div>
       </motion.div>
-      <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 50 }} transition={{ duration: 2 }}>
-        <div className="rightTriangle"></div>
-      </motion.div>
+
       <Main />
       <Projects />
       <About />

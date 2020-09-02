@@ -1,14 +1,12 @@
 .about {
   @extend .projects;
   z-index: 9;
-  left: 28%;
+  left: 29%;
+
   &__triangle {
     @extend %triangleDown;
   }
   &__info {
-    &-left {
-      position: relative;
-    }
     color: $lightestText;
     position: absolute;
     height: 100vh;

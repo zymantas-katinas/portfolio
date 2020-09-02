@@ -40,10 +40,7 @@
     font-weight: 300;
     color: $lightText;
     width: 28%;
-    & a {
-      pointer-events: all;
-      cursor: pointer;
-    }
+
     // opacity: 0.75;
   }
 }

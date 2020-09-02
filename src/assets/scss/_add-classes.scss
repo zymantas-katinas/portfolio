@@ -49,6 +49,14 @@
 //   transition: 2.5s cubic-bezier(0, 0.65, 0.26, 1.01);
 //   pointer-events: all;
 // }
+.selected {
+  & h2 {
+    opacity: 1;
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
 
 .show {
   display: block;

@@ -1,46 +1,41 @@
 export const projectsVariants = {
   hidden: {
     x: "-100vw",
-    // opacity: 0,
-    // zIndex: 999,
     transition: {
-      delay: 0.3,
+      delay: 0.2,
     },
   },
   visible: {
     x: 0,
-    // opacity: 1,
     zIndex: 999,
     position: "relative",
     transition: {
-      //   delay: 0.4,
       duration: 0.6,
     },
   },
 }
 
-export const projectInfoVariants = {
-  hidden: {
-    y: "100vh",
-    // zIndex: 99,
-  },
-  visible: {
-    y: 0,
-    transition: {
-      delay: 0.4,
-      duration: 0.3,
-    },
-  },
-}
+// export const projectInfoVariants = {
+//   hidden: {
+//     y: "100vh",
+//     // zIndex: 99,
+//   },
+//   visible: {
+//     y: 0,
+//     transition: {
+//       delay: 0.3,
+//       duration: 0.3,
+//     },
+//   },
+// }
 export const mainVariants = {
   hidden: {
     x: "-100vw",
   },
   visible: {
     x: 0,
-    // zIndex: 99,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
     },
   },
 }
@@ -50,9 +45,7 @@ export const aboutVariants = {
   },
   visible: {
     opacity: 1,
-    // zIndex: 99,
     transition: {
-      //   type: "tween",
       duration: 1,
     },
   },
@@ -64,9 +57,7 @@ export const contactVariants = {
   },
   visible: {
     opacity: 1,
-    // zIndex: 99,
     transition: {
-      //   type: "tween",
       duration: 1,
     },
   },

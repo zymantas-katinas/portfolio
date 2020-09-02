@@ -1,7 +1,5 @@
 // colors
-// $triangle: #6edfb52e;
 $triangle: #3be69f14;
-// $background: #24212d;
 $background: #1b3a48;
 $frame: #11272f;
 $lightText: #dbd6e26c;
@@ -17,10 +15,8 @@ $disabled: #36333c;
   clip-path: polygon(50% 100%, 0 0, 100% 0);
   padding: 2rem 12.5% 0 0;
   background-color: $triangle;
-  // position: absolute;
   position: absolute;
   pointer-events: none;
-  // mix-blend-mode: hard-light;
   bottom: 10px;
 }
 %triangleUp {
@@ -70,6 +66,7 @@ body {
   position: absolute;
   cursor: pointer;
   user-select: none;
+  pointer-events: all;
 }
 .bottom-info {
   display: flex;

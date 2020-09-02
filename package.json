@@ -14,9 +14,7 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "swiper": "^5.4.5",
-    "webpack": "^4.43.0",
-    "yarn": "^1.22.4"
+    "swiper": "^5.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -40,7 +38,6 @@
     ]
   },
   "devDependencies": {
-    "url-loader": "^4.1.0",
-    "webpack-cli": "^3.3.11"
+    "url-loader": "^4.1.0"
   }
 }

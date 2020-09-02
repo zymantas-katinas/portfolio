@@ -17,32 +17,51 @@ function Project() {
         </div>
       )
     })
+    const variants = {
+      open: {
+        transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+      },
+      closed: {
+        transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      },
+    }
+
+    const childVariants = {
+      open: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          y: { stiffness: 1000, velocity: -100 },
+        },
+      },
+      closed: {
+        y: 50,
+        opacity: 0,
+        transition: {
+          y: { stiffness: 1000 },
+        },
+      },
+    }
+    const pointerEvents = position ? { pointerEvents: "all" } : { pointerEvents: "none" }
+
     return (
-      <div className="swiper-slide" key={item.title}>
-        <div className="project">
-          <AnimatePresence>
-            {position && (
-              <motion.div
-                variants={projectInfoVariants}
-                initial="hidden"
-                animate="visible"
-                exit="hidden"
-                className="project__info"
-              >
-                <div className="project__info-text">
-                  <h1>{item.title}</h1>
-                  <p>{item.paragraph}</p>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-          <div className="project__gallery">{images}</div>
-        </div>
+      <div className="swiper-slide" key={item.title} style={pointerEvents}>
+        <motion.div initial={false} animate={position ? "open" : "closed"} className="project">
+          <motion.div variants={variants} className="project__info">
+            <motion.div className="swiper-pagination" variants={childVariants}></motion.div>
+            <motion.h1 variants={childVariants}>{item.title}</motion.h1>
+            <motion.p variants={childVariants}>{item.paragraph}</motion.p>
+            <motion.a href={item.link} variants={childVariants} target="_blank">
+              {item.link}
+            </motion.a>
+          </motion.div>
+          <motion.div variants={childVariants} className="project__gallery">
+            {images}
+          </motion.div>
+        </motion.div>
       </div>
     )
   })
-
-  // let [mySwiper, setMySwiper] = useState(null)
 
   useEffect(() => {
     new Swiper(".swiper-container", {
@@ -58,8 +77,12 @@ function Project() {
 
   return (
     <div className="swiper-container">
-      <div className="swiper-wrapper">{allProjects}</div>
-      <div className="swiper-pagination"></div>
+      <div className="swiper-wrapper">
+        {/* <motion.div initial={false} animate={position ? "open" : "closed"} className="swiper-wrapper"> */}
+        {allProjects}
+        {/* </motion.div> */}
+      </div>
+      {/* <div className="swiper-pagination"></div> */}
     </div>
   )
 }
