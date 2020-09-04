@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 // import ContactForm from "./ContactForm"
 import ContactForm from "./ContactFormik"
 import { useSelector, useDispatch } from "react-redux"
-import { contactSelected, aboutAway, mainAway, projectsAway } from "../actions"
+import { contactSelected, aboutAway, mainAway, projectsAway, setColor } from "../actions"
 import { motion } from "framer-motion"
 
 function Contact() {
   const [trianglePos, setTrianglePos] = useState(0)
   const [pos, setPos] = useState(true)
   const position = useSelector((state) => state.contactPosition)
+  const colorNumber = useSelector((state) => state.colorNumber)
+  // const colorNum = useS
+  const triangleRef = useRef()
+
   const dispatch = useDispatch()
   const handleClick = () => {
     dispatch(contactSelected())
@@ -22,6 +26,12 @@ function Contact() {
   }
 
   useEffect(() => {
+    setInterval(() => {
+
+      dispatch(setColor(triangleRef.current.getBoundingClientRect().top))
+
+      // console.log(triangleRef.current.getBoundingClientRect().top)
+    }, 100)
     setTimeout(() => {
       setPos(false)
     }, 2000)
@@ -46,6 +56,8 @@ function Contact() {
     },
   }
 
+  const color = `rgb(${colorNumber}, 64, 0)`
+
   return (
     <div>
       <motion.div
@@ -65,8 +77,9 @@ function Contact() {
         variants={variants}
         initial="hidden"
         animate={position ? "selected" : `${pos ? "default" : "unselected"}`}
+
       >
-        <div className="rightTriangle"></div>
+        <div className="rightTriangle" ref={triangleRef} style={{ backgroundColor: color }}></div>
       </motion.div>
     </div>
   )

@@ -1,3 +1,12 @@
+//COLOR 
+export const setColor = (num) => {
+  return {
+    type: "COLOR_SET",
+    val: num,
+  }
+}
+
+
 //MAIN
 export const mainAway = () => {
   return {
