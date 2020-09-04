@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { motion } from "framer-motion"
+import axios from 'axios'
 
 const variants = {
     open: {
@@ -29,7 +30,7 @@ const childVariants = {
     },
 }
 const SignupSchema = Yup.object().shape({
-    firstName: Yup.string()
+    name: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
@@ -42,7 +43,6 @@ const SignupSchema = Yup.object().shape({
         .required('Required'),
 });
 const ContactForm = (props) => {
-    const [disable, setDisabled] = useState(true)
     const pointerEvents = props.position ? { pointerEvents: "all" } : { pointerEvents: "none" }
 
     return (
@@ -52,38 +52,54 @@ const ContactForm = (props) => {
            </motion.p>
             <Formik
                 initialValues={{
-                    firstName: '',
+                    name: '',
                     message: '',
                     email: '',
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={values => {
-                    // same shape as initial values
-                    console.log(values);
+                    axios({
+                        method: "POST",
+                        url: "http://localhost:5000/send",
+                        data: {
+                            name: values.name,
+                            email: values.email,
+                            message: values.message,
+                        }
+                    }).then((response) => {
+                        if (response.data.status === 'success') {
+                            alert("Message Sent.");
+                            // this.resetForm()
+                        } else if (response.data.status === 'fail') {
+                            alert("Message failed to send.")
+                        }
+                        console.log(response)
+                    })
+
                 }}
             >
                 {({ errors, touched, isValid, dirty }) => (
-                    <Form onChange={() => console.log(errors)}>
+                    <Form >
                         <motion.div variants={childVariants} >
-                            <Field name="firstName" className="contact__input" placeholder="name" />
-                            {errors.firstName && touched.firstName ? (
-                                <div className="contact__error"><p>{errors.firstName}</p></div>
+                            <Field name="name" className="contact__input" placeholder="name" />
+                            {errors.name && touched.name ? (
+                                <div className="contact__error"><p>{errors.name}</p></div>
                             ) : null}
                         </motion.div>
                         <motion.div variants={childVariants} >
                             <Field name="email" type="email" className="contact__input" placeholder="email" />
-                            {errors.email && touched.email ? <div>{errors.email}</div> : null}
+                            {errors.email && touched.email ? <div className="contact__error"><p>{errors.email}</p></div> : null}
                         </motion.div>
                         <motion.div variants={childVariants} >
                             <Field component="textarea" row="6" name="message" className="contact__input" placeholder="message" />
                             {errors.message && touched.message ? (
-                                <div>{errors.message}</div>
+                                <div className="contact__error"><p>{errors.message}</p></div>
                             ) : null}
                         </motion.div>
                         <motion.button
                             className="button-medium"
                             type="submit"
-                            disabled={!isValid && !dirty}
+                            disabled={!(isValid && dirty)}
                             variants={childVariants}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.95 }}

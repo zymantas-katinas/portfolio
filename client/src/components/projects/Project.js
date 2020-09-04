@@ -4,50 +4,26 @@ import { useSelector } from "react-redux"
 import { AnimatePresence, motion } from "framer-motion"
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css"
-import { projectInfoVariants } from "../../variants"
+import { childVariants, projectInfoVariants } from "../../variants"
 
 function Project() {
   const position = useSelector((state) => state.projectsPosition)
 
-  const allProjects = projectsData.map((item) => {
-    const images = item.img.map((item) => {
+  const allProjects = projectsData.map((item, index) => {
+    const images = item.img.map((itemI, indexI) => {
       return (
-        <div className="project__image">
-          <img key={item} src={item} alt="project" />
+        <div className="project__image" key={indexI} >
+          <img src={itemI} alt="project" />
         </div>
       )
     })
-    const variants = {
-      open: {
-        transition: { staggerChildren: 0.12, delayChildren: 0.2 },
-      },
-      closed: {
-        transition: { staggerChildren: 0.05, staggerDirection: -1 },
-      },
-    }
 
-    const childVariants = {
-      open: {
-        y: 0,
-        opacity: 1,
-        transition: {
-          y: { stiffness: 1000, velocity: -100 },
-        },
-      },
-      closed: {
-        y: 50,
-        opacity: 0,
-        transition: {
-          y: { stiffness: 1000 },
-        },
-      },
-    }
     const pointerEvents = position ? { pointerEvents: "all" } : { pointerEvents: "none" }
 
     return (
-      <div className="swiper-slide" key={item.title} style={pointerEvents}>
+      <div className="swiper-slide" key={index} style={pointerEvents}>
         <motion.div initial={false} animate={position ? "open" : "closed"} className="project">
-          <motion.div variants={variants} className="project__info">
+          <motion.div variants={projectInfoVariants} className="project__info">
             <motion.div className="swiper-pagination" variants={childVariants}></motion.div>
             <motion.h1 variants={childVariants}>{item.title}</motion.h1>
             <motion.p variants={childVariants}>{item.paragraph}</motion.p>
@@ -65,7 +41,7 @@ function Project() {
 
   useEffect(() => {
     new Swiper(".swiper-container", {
-      loop: true,
+      loop: false,
       slidesPerView: "1",
       centeredSlides: true,
       pagination: {
@@ -76,7 +52,7 @@ function Project() {
   }, [])
 
   return (
-    <div className="swiper-container">
+    <div className="swiper-container" style={{ zIndex: position ? 100 : -1 }}>
       <div className="swiper-wrapper">
         {/* <motion.div initial={false} animate={position ? "open" : "closed"} className="swiper-wrapper"> */}
         {allProjects}

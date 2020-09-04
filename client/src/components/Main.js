@@ -16,9 +16,7 @@ function Main() {
               I <span>Design</span> <br /> and <span>Develop</span> <br />
               Unique <span>Websites.</span>
             </h1>
-            <div className="main__text">
-              <p>“A creative person With developers Mindset.”</p>
-            </div>
+
           </div>
         </motion.div>
       )}

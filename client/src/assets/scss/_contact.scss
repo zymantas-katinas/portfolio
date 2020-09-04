@@ -35,10 +35,10 @@
     }
     input,
     textarea {
-      // background-color: transparent;
-      // border: 2px solid $lightText;
-      background-color: #1b3a47c9;
-      border: 1px solid #8fa9a5;
+      background-color: transparent;
+      border: 2px solid $lightText;
+      // background-color: #1b3a47c9;
+      // border: 1px solid #8fa9a5;
       border-radius: 5px;
       height: 42px;
       font-size: 1rem;
@@ -64,20 +64,21 @@
       // font-weight: 400;
     }
     button {
-      margin: 1em 0;
+      margin: 0.5em 0;
       cursor: pointer;
       transition-duration: 0.25s;
       transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
       border-radius: 3px;
-      background-color: transparent;
-      color: $lightestText;
-      border: 2px solid $lightestText;
+      background-color: #24655c;
+      color: #ffffffdb;
+      border: 1px solid #ffffffdb;
       text-align: center;
+      width: -moz-fit-content;
       width: fit-content;
       cursor: pointer;
-      height: 42px;
-      font-size: 1.5rem;
-      padding: 0 1rem;
+      height: 38px;
+      font-size: 1.2rem;
+      padding: 0 0.7rem;
       font-weight: 500;
       &:focus {
         outline: 0;
@@ -99,6 +100,8 @@
   &__error {
     align-items: center;
     display: flex;
+    font-size: 0.8rem;
+    color: #ffd9d9;
     & svg {
       margin-right: 0.5em;
     }

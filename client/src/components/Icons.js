@@ -9,17 +9,22 @@ function Icons() {
   const position = useSelector((state) => state.projectsPosition)
   const mainPosition = useSelector((state) => state.mainPosition)
   const contactPosition = useSelector((state) => state.contactPosition)
+  const aboutPosition = useSelector((state) => state.aboutPosition)
 
   return (
     <AnimatePresence>
-      {contactPosition && (
+      {(contactPosition || aboutPosition) && (
         <motion.div variants={iconsVariants} initial="hidden" animate="visible" exit="hidden" className="bottom-info">
           <div className="bottom-info__icons">
-            <FaLinkedin />
-            <FaGithub />
+            <a href="https://www.linkedin.com/in/zymantas-katinas/" target="_blank"><FaLinkedin /></a>
+            <a href="https://github.com/zymantas-katinas" target="_blank"><FaGithub /></a>
+
             <div className="bottom-info__icons-upwork">
-              <Upwork />
+              <a href="https://www.upwork.com/o/profiles/users/~01b3688dcac59550db/" target="_blank">
+                <Upwork />
+              </a>
             </div>
+
           </div>
           <div className="bottom-info__status">
             <h2>

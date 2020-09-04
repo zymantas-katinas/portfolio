@@ -15,7 +15,7 @@ function Contact() {
     dispatch(projectsAway())
     dispatch(mainAway())
     dispatch(aboutAway())
-    setTrianglePos(-2)
+    setTrianglePos(-3)
     setTimeout(() => {
       setTrianglePos(0)
     }, 200)

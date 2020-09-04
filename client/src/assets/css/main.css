@@ -65,7 +65,7 @@ select {
   -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
           clip-path: polygon(50% 100%, 0 0, 100% 0);
   padding: 2rem 12.5% 0 0;
-  background-color: #3be69f14;
+  background-color: #e6be3b14;
   position: absolute;
   pointer-events: none;
   bottom: 10px;
@@ -86,15 +86,36 @@ body {
   width: 100%;
   height: 100%;
   background-color: #1b3a48;
-  position: relative;
   -webkit-font-smoothing: antialiased;
-  will-change: scroll-position;
   overflow: hidden;
-  pointer-events: none;
 }
 
 .loading-screen {
   position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #fdfdff;
+  z-index: 9999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  opacity: 0.8;
+  -webkit-transition: 0s cubic-bezier(0.06, 0.9, 0, 1.07);
+  transition: 0s cubic-bezier(0.06, 0.9, 0, 1.07);
+  pointer-events: none;
+}
+
+.loading-screen-off {
+  -webkit-transition: 4s cubic-bezier(0.12, 0.29, 0.15, 0.97);
+  transition: 4s cubic-bezier(0.12, 0.29, 0.15, 0.97);
+  opacity: 0;
 }
 
 .logo {
@@ -129,11 +150,11 @@ body {
   position: absolute;
   z-index: 12;
   color: #dbd6e26c;
-  bottom: 20px;
+  bottom: 0px;
 }
 
 .bottom-info__status {
-  bottom: -1px;
+  bottom: 20px;
   font-size: 0.7rem;
   margin-right: 4%;
   position: absolute;
@@ -216,8 +237,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 40px;
+  margin-left: 15px;
   cursor: pointer;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .bottom-info__icons svg {
@@ -232,6 +255,7 @@ body {
 
 .bottom-info__icons-upwork {
   cursor: pointer;
+  margin-bottom: 15px;
 }
 
 .bottom-info__icons-upwork svg {
@@ -386,7 +410,6 @@ body {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 100 !important;
   position: fixed !important;
   pointer-events: none;
   -webkit-transition: 0.4s cubic-bezier(0.56, 0.05, 0, 1.01);
@@ -437,6 +460,10 @@ body {
   z-index: 100;
   height: 100%;
   overflow: auto;
+}
+
+.project__gallery img {
+  width: 100%;
 }
 
 .project__info {
@@ -494,13 +521,14 @@ body {
   color: #ffffffdb;
   position: absolute;
   height: 100vh;
+  padding: 0 28%;
   top: 0;
   pointer-events: none;
 }
 
 .about__info p {
-  text-align: center;
-  padding: 50px 0 0 0;
+  text-align: left;
+  padding: 33px 0 0 0;
 }
 
 .about__info a {
@@ -612,8 +640,8 @@ body {
 
 .contact__form input,
 .contact__form textarea {
-  background-color: #1b3a47c9;
-  border: 1px solid #8fa9a5;
+  background-color: transparent;
+  border: 2px solid #dbd6e26c;
   border-radius: 5px;
   height: 42px;
   font-size: 1rem;
@@ -659,24 +687,24 @@ body {
 }
 
 .contact__form button {
-  margin: 1em 0;
+  margin: 0.5em 0;
   cursor: pointer;
   -webkit-transition-duration: 0.25s;
           transition-duration: 0.25s;
   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   border-radius: 3px;
-  background-color: transparent;
+  background-color: #24655c;
   color: #ffffffdb;
-  border: 2px solid #ffffffdb;
+  border: 1px solid #ffffffdb;
   text-align: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
+  width: -webkit-fit-content;
   width: fit-content;
   cursor: pointer;
-  height: 42px;
-  font-size: 1.5rem;
-  padding: 0 1rem;
+  height: 38px;
+  font-size: 1.2rem;
+  padding: 0 0.7rem;
   font-weight: 500;
 }
 
@@ -706,6 +734,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 0.8rem;
+  color: #ffd9d9;
 }
 
 .contact__error svg {

@@ -13,7 +13,7 @@ function Projects() {
     dispatch(aboutAway())
     dispatch(mainAway())
     dispatch(contactAway())
-    setTrianglePos(-2)
+    setTrianglePos(-3)
     setTimeout(() => {
       setTrianglePos(0)
     }, 200)
@@ -25,7 +25,8 @@ function Projects() {
       <motion.div
         initial={{ y: "-100vh" }}
         animate={{ y: `${trianglePos}vh` }}
-        transition={{ duration: 0.6, delay: 0.4 }}
+        // transition={{ duration: 0.6, delay: 0.4 }}
+        transition={{ duration: 1 }}
         className="projects"
       >
         <div className={`projects__triangle ${position && "selected"}`}>

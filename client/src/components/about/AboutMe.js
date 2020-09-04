@@ -30,13 +30,16 @@ const childVariants = {
 function AboutMe(props) {
   return (
     <motion.div className="about__info" variants={variants}>
-      <div className="left"></div>
-      <div className="right"></div>
+      {/* <div className="left"></div>
+      <div className="right"></div> */}
       <motion.h1 variants={childVariants}>Something About Me</motion.h1>
       <motion.p variants={childVariants}>
-        I am currently developing this portfolio web version. Visit the older version to find out more about me.
-        <a href="http://old.zymantaskatinas.com/"> old.zymantaskatinas.com</a>
+        I am a creative person with a developers mindset. Apart from being an outdoor activities enthusiast, I love to spend days immersed in creative projects. Challenges make me excited instead of anxious and I tend to get my teammates to feel the same way.
+
       </motion.p>
+      {/* <div className="main__text">
+        <p>“I like to make stuff”</p>
+      </div> */}
     </motion.div>
   )
 }
