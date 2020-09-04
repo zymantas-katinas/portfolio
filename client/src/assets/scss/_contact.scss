@@ -1,0 +1,110 @@
+.contact {
+  @extend .projects;
+  z-index: 8;
+  left: 45%;
+  &__triangle {
+    @extend %triangleDown;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+  &__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__image {
+    position: relative;
+    right: 100px;
+  }
+  &__form {
+    color: $lightestText;
+    left: 50%;
+    top: 50%;
+    position: fixed;
+    width: 27%;
+    z-index: 100;
+    transform: translate(-50%, -50%);
+    pointer-events: all;
+    form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    input,
+    textarea {
+      // background-color: transparent;
+      // border: 2px solid $lightText;
+      background-color: #1b3a47c9;
+      border: 1px solid #8fa9a5;
+      border-radius: 5px;
+      height: 42px;
+      font-size: 1rem;
+      color: #fffffffc;
+      padding-left: 15px;
+      width: 100%;
+      // /* font-weight: 500;
+      &::placeholder {
+        color: $lightText;
+        opacity: 0.5;
+      }
+      &:focus {
+        border: 2px solid $lightestText;
+        outline: none;
+        transition: 0.3s ease-in-out;
+      }
+    }
+    textarea {
+      height: 120px;
+      // margin: 1em 0 0 0;
+      // font-size: 1rem;
+      // padding: 5px 15px;
+      // font-weight: 400;
+    }
+    button {
+      margin: 1em 0;
+      cursor: pointer;
+      transition-duration: 0.25s;
+      transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      border-radius: 3px;
+      background-color: transparent;
+      color: $lightestText;
+      border: 2px solid $lightestText;
+      text-align: center;
+      width: fit-content;
+      cursor: pointer;
+      height: 42px;
+      font-size: 1.5rem;
+      padding: 0 1rem;
+      font-weight: 500;
+      &:focus {
+        outline: 0;
+        border: 1px solid $active;
+      }
+      &:hover {
+        background-color: $hover;
+      }
+      &:disabled {
+        background-color: transparent;
+        color: #ffffff46;
+        border: 2px solid #908b94;
+      }
+    }
+  }
+  &__input {
+    margin: 1em 0 0 0;
+  }
+  &__error {
+    align-items: center;
+    display: flex;
+    & svg {
+      margin-right: 0.5em;
+    }
+  }
+
+  &__info-top-over {
+    display: none;
+  }
+}
