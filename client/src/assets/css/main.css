@@ -302,7 +302,10 @@ body {
 }
 
 .rightTriangle {
-  right: -52%;
+  right: -23%;
+  z-index: 99999;
+  cursor: pointer;
+  pointer-events: all;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }

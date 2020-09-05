@@ -196,6 +196,10 @@ body {
 
 .rightTriangle {
   @extend %triangleUp;
-  right: -52%;
+  // right: -52%;
+  right: -23%;
+  z-index: 99999;
+  cursor: pointer;
+  pointer-events: all;
   transform: translateX(-50%);
 }

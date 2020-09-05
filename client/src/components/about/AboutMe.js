@@ -1,6 +1,6 @@
 import React from "react"
 import { motion } from "framer-motion"
-import Avatar from '../../avatar'
+import Avatar from './avatar'
 
 const variants = {
   open: {

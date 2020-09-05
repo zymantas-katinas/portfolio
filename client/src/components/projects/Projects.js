@@ -8,8 +8,7 @@ function Projects() {
   const position = useSelector((state) => state.projectsPosition)
   const [trianglePos, setTrianglePos] = useState(0)
   const dispatch = useDispatch()
-  const colorNumber = useSelector((state) => state.colorNumber)
-  const color = `rgb(${colorNumber}, 64, 0)`
+  const color = useSelector((state) => state.colorNumber)
 
   const handleClick = () => {
     dispatch(projectsSelected())

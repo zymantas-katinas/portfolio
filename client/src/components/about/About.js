@@ -9,6 +9,7 @@ function About() {
   const position = useSelector((state) => state.aboutPosition)
   const dispatch = useDispatch()
   const [trianglePos, setTrianglePos] = useState(0)
+  const color = useSelector((state) => state.colorNumber)
 
   const handleClick = () => {
     dispatch(aboutSelected())
@@ -30,7 +31,7 @@ function About() {
         transition={{ duration: 0.8 }}
         className="about"
       >
-        <div className={`about__triangle ${position && "selected"}`}>
+        <div className={`about__triangle ${position && "selected"}`} style={{ backgroundColor: color }}>
           <h2 onClick={handleClick}>Who am I?</h2>
 
         </div>

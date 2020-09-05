@@ -14,6 +14,7 @@ function App() {
   const [side, setSide] = useState(0)
   const [up, setUp] = useState(0)
   const [loading, setLoading] = useState(true)
+  const color = useSelector((state) => state.colorNumber)
 
   const matrix = `matrix3d(1, 0, 0, ${side}, 0, 1, 0, ${up}, 0, 0, 1, 0, 0, 0, 0, 1)`
   const dispatch = useDispatch()
@@ -58,7 +59,7 @@ function App() {
       </div>}
       <div className="frame"></div>
       <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
-        <div className="leftTriangle"></div>
+        <div className="leftTriangle" style={{ backgroundColor: color }}></div>
       </motion.div>
 
       <Main />
