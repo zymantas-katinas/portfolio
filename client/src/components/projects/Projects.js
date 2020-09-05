@@ -8,6 +8,9 @@ function Projects() {
   const position = useSelector((state) => state.projectsPosition)
   const [trianglePos, setTrianglePos] = useState(0)
   const dispatch = useDispatch()
+  const colorNumber = useSelector((state) => state.colorNumber)
+  const color = `rgb(${colorNumber}, 64, 0)`
+
   const handleClick = () => {
     dispatch(projectsSelected())
     dispatch(aboutAway())
@@ -29,7 +32,7 @@ function Projects() {
         transition={{ duration: 1 }}
         className="projects"
       >
-        <div className={`projects__triangle ${position && "selected"}`}>
+        <div className={`projects__triangle ${position && "selected"}`} style={{ backgroundColor: color }}>
           <h2 onClick={handleClick}>Projects</h2>
         </div>
       </motion.div>

@@ -313,6 +313,7 @@ body {
   width: 100%;
   position: fixed;
   pointer-events: none;
+  z-index: 99999;
 }
 
 .main__triangle {
