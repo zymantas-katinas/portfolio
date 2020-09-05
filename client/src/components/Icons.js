@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { FaLinkedin, FaGithub } from "react-icons/fa"
-import { ReactComponent as Upwork } from "../assets/images/upwork-icon.svg"
+import { ReactComponent as Upwork } from "../assets/icons/upwork-icon.svg"
 import { AnimatePresence, motion } from "framer-motion"
 import { iconsVariants } from "../variants"
 

@@ -79,7 +79,11 @@ function Contact() {
         animate={position ? "selected" : `${pos ? "default" : "unselected"}`}
 
       >
-        <div className="rightTriangle" ref={triangleRef} style={{ backgroundColor: color }}></div>
+        <div
+          className="rightTriangle"
+          ref={triangleRef}
+        // style={{ backgroundColor: color }}
+        ></div>
       </motion.div>
     </div>
   )

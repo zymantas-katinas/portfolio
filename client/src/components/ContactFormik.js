@@ -81,17 +81,17 @@ const ContactForm = (props) => {
                 {({ errors, touched, isValid, dirty }) => (
                     <Form >
                         <motion.div variants={childVariants} >
-                            <Field name="name" className="contact__input" placeholder="name" />
+                            <Field name="name" className="contact__input" placeholder="Name" />
                             {errors.name && touched.name ? (
                                 <div className="contact__error"><p>{errors.name}</p></div>
                             ) : null}
                         </motion.div>
                         <motion.div variants={childVariants} >
-                            <Field name="email" type="email" className="contact__input" placeholder="email" />
+                            <Field name="email" type="email" className="contact__input" placeholder="Email" />
                             {errors.email && touched.email ? <div className="contact__error"><p>{errors.email}</p></div> : null}
                         </motion.div>
                         <motion.div variants={childVariants} >
-                            <Field component="textarea" row="6" name="message" className="contact__input" placeholder="message" />
+                            <Field component="textarea" row="6" name="message" className="contact__input" placeholder="Tell me something" />
                             {errors.message && touched.message ? (
                                 <div className="contact__error"><p>{errors.message}</p></div>
                             ) : null}

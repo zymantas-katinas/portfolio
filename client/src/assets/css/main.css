@@ -464,6 +464,11 @@ body {
 
 .project__gallery img {
   width: 100%;
+  border-radius: 10px;
+}
+
+.project__image {
+  margin: 20px 0 20px 20px;
 }
 
 .project__info {
@@ -524,6 +529,9 @@ body {
   padding: 0 28%;
   top: 0;
   pointer-events: none;
+  text-align: center;
+  padding-top: 150px;
+  z-index: 9999;
 }
 
 .about__info p {
@@ -562,7 +570,11 @@ body {
 
 .about__info h1 {
   text-align: center;
-  padding: 150px 0 0 0;
+  padding: 30px 0 0 0;
+}
+
+.about__info svg {
+  z-index: 999;
 }
 
 .about__info .left {
@@ -684,6 +696,7 @@ body {
 
 .contact__form textarea {
   height: 120px;
+  padding-top: 7px;
 }
 
 .contact__form button {

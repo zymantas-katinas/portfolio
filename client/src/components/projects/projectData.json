@@ -4,12 +4,9 @@
         "paragraph": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
         "link": "https://www.dviesepoazija.lt",
         "img": [
-            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6377-1024x683.jpg",
-            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6370-1024x683.jpg",
-            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6349-1024x683.jpg",
-            "https://www.dviesepoazija.lt/wp-content/uploads/IMG_6513-1024x683.jpg",
-            "https://www.dviesepoazija.lt/wp-content/uploads/2018/01/IMG_1805.jpg",
-            "https://www.dviesepoazija.lt/wp-content/uploads/2018/01/IMG_1826.jpg"
+            "/images/projects/leon/3.png",
+            "/images/projects/leon/1.png",
+            "/images/projects/leon/2.png"
         ]
     },
     {
