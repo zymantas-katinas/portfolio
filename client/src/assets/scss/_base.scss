@@ -1,6 +1,7 @@
 // colors
 // $triangle: #3be69f14;
-$triangle: #e6be3b14;
+$triangle: #3be6a638;
+// $triangle: #e6be3b14;
 $background: #1b3a48;
 $frame: #11272f;
 $lightText: #dbd6e26c;
@@ -27,7 +28,7 @@ $disabled: #36333c;
   @extend %triangleDown;
   top: 0;
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  mix-blend-mode: luminosity;
+  // mix-blend-mode: luminosity;
 }
 
 html,
@@ -54,9 +55,9 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  // background-color: #353674;
-  background-color: #fdfdff;
-  z-index: 9999;
+  background-color: #1b3a48;
+  // background-color: #fdfdff;
+  z-index: 999999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +66,7 @@ body {
   transition: 0s cubic-bezier(0.06, 0.9, 0, 1.07);
   pointer-events: none;
   &-off {
-    transition: 1s cubic-bezier(0, 0.17, 0.15, 0.55);
+    transition: 1s cubic-bezier(0.46, 0.1, 0.74, 0.59);
 
     opacity: 0;
 
@@ -204,10 +205,16 @@ body {
 
 .rightTriangle {
   @extend %triangleUp;
-  right: -52%;
-  z-index: 99999;
-  transform: translateX(-50%);
-  // width: 11%;;
-  // right: 0;
-  // padding: 0;
+  right: -22%;
+  // transition: transform 1s;
+  transform: translateZ(0);
+  will-change: transform;
+  transition:  0.5s linear;
+  // transition: color 1s ease;
+
+  // @keyframes move {
+  //   from { transform: translateY(0); }
+  //   to { transform: translateY(70px); }
+  //  }
+
 }

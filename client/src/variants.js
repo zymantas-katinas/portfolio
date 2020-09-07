@@ -41,18 +41,6 @@ export const projectInfoVariants = {
   },
 }
 
-export const mainVariants = {
-  hidden: {
-    x: "-100vw",
-  },
-  visible: {
-    x: 0,
-    transition: {
-      delay: 1,
-      duration: 1,
-    },
-  },
-}
 export const aboutVariants = {
   hidden: {
     opacity: 0,

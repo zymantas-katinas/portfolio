@@ -7,8 +7,8 @@ import { motion } from "framer-motion"
 
 function Contact(props) {
   const [trianglePos, setTrianglePos] = useState(0)
-  const [pos, setPos] = useState(true)
-  const [top, setTop] = useState(1)
+  const [top, setTop] = useState(80)
+  const [dir, setDir] = useState(true)
   const contactPosition = useSelector((state) => state.contactPosition)
   const aboutPosition = useSelector((state) => state.aboutPosition)
   const projectsPosition = useSelector((state) => state.projectsPosition)
@@ -31,60 +31,30 @@ function Contact(props) {
     }, 200)
   }
 
-  useEffect(() => {
-    // setInterval(() => {
-    //   dispatch(setColor(triangleRef.current.getBoundingClientRect().top))
-    // }, 250)
-    setTimeout(() => {
-      setPos(false)
-    }, 2000)
-  }, [])
-
-
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTop(top + 1)
-      dispatch(setColor(top))
-      console.log(top)
-    }, 250)
-    !mainPosition && clearInterval(interval)
-    return () => clearInterval(interval)
-  }, [mainPosition, top])
+    top === 80 && setDir(false)
+    top === 16 && setDir(true)
+    console.log(dir)
+    mainPosition &&
+      setTimeout(() => {
+        dir ? setTop(top + 2) : setTop(top - 2)
+      }, 500)
 
-  useEffect(() => {
-    aboutPosition ? dispatch(setColor(triangleRef.current.getBoundingClientRect().top)) :
-      projectsPosition ? dispatch(setColor(triangleRef.current.getBoundingClientRect().top)) :
-        contactPosition ? dispatch(setColor(triangleRef.current.getBoundingClientRect().top)) :
-          dispatch(setColor(triangleRef.current.getBoundingClientRect().top))
-  }, [aboutPosition, contactPosition, projectsPosition])
+    aboutPosition ? setTop(50) :
+      projectsPosition ? setTop(16) :
+        contactPosition && setTop(80)
 
-  const variants = {
-    hidden: {
-      y: window.innerHeight + 200,
-      // transition: { duration: 1.5 },
-    },
-    default: {
-      y: 450,
-      transition: { duration: 2 },
-    },
-    selectedContact: {
-      y: 550,
-      transition: { duration: 0.8, delay: 0.2 },
-    },
-    selectedProject: {
-      y: 50,
-      transition: { duration: 0.8, delay: 0.2 },
-    },
-    selectedAbout: {
-      y: 300,
-      transition: { duration: 0.8, delay: 0.2 },
-    },
-    unselected: {
-      y: [450, 50, 450],
-      transition: { duration: 30, loop: Infinity, ease: "easeInOut" },
-    },
-  }
+
+  }, [aboutPosition, contactPosition, projectsPosition, mainPosition, top])
+
+
+  // useEffect(() => {
+  //   // top % 5 === 0 &&
+  //   dispatch(setColor(top))
+  // }, [top])
+
+  const pxPerMove = parseInt(window.innerHeight / 100, 10)
 
   return (
     <div>
@@ -110,22 +80,16 @@ function Contact(props) {
         <ContactForm position={contactPosition} />
       </motion.div>
 
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        animate={
-          contactPosition ? "selectedContact" :
-            projectsPosition ? 'selectedProject' :
-              aboutPosition ? "selectedAbout" :
-                `${pos ? "default" : "unselected"}`
-        }
-      >
-        <div
-          className="rightTriangle"
-          ref={triangleRef}
-          style={{ backgroundColor: color }}
-        ></div>
-      </motion.div>
+      <div
+        className="rightTriangle"
+        ref={triangleRef}
+        style={{
+          backgroundColor: color,
+          transform: `translateY(${top * pxPerMove}px)`,
+          // top: top + "%",
+          // transition: '1s'
+        }}
+      ></div>
 
     </div >
   )

@@ -10,11 +10,14 @@ function Main(props) {
   const mainVariants = {
     hidden: {
       x: "-100vw",
+      opacity: 0,
     },
     visible: {
       x: 0,
+      opacity: 1,
       transition: {
-        duration: 1.5
+        delay: 0.5,
+        duration: 1
       }
     },
   }
