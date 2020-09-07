@@ -48,7 +48,8 @@ export const mainVariants = {
   visible: {
     x: 0,
     transition: {
-      duration: 0.6,
+      delay: 1,
+      duration: 1,
     },
   },
 }

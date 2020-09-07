@@ -1,14 +1,27 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import { AnimatePresence, motion } from "framer-motion"
-import { mainVariants } from "../variants"
 
-function Main() {
+function Main(props) {
   const position = useSelector((state) => state.mainPosition)
-  const color = useSelector((state) => state.colorNumber)
+  const color = useSelector((state) => state.colorNumber.triangle)
+
+
+  const mainVariants = {
+    hidden: {
+      x: "-100vw",
+    },
+    visible: {
+      x: 0,
+      transition: {
+        duration: 1.5
+      }
+    },
+  }
 
   return (
     <AnimatePresence>
+
       {position && (
         <motion.div variants={mainVariants} initial="hidden" animate="visible" exit="hidden">
           <div className="main">
@@ -20,6 +33,7 @@ function Main() {
           </div>
         </motion.div>
       )}
+
     </AnimatePresence>
   )
 }

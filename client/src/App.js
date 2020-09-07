@@ -20,12 +20,12 @@ function App() {
   const dispatch = useDispatch()
   const projectsPosition = useSelector((state) => state.projectsPosition)
 
-  const handleMouseMove = (e) => {
-    const posUp = e.pageY - window.innerHeight / 2
-    const posSide = e.pageX - window.innerWidth / 2
-    setSide(posSide / 150000)
-    setUp(posUp / 150000)
-  }
+  // const handleMouseMove = (e) => {
+  //   const posUp = e.pageY - window.innerHeight / 2
+  //   const posSide = e.pageX - window.innerWidth / 2
+  //   setSide(posSide / 150000)
+  //   setUp(posUp / 150000)
+  // }
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
@@ -51,7 +51,7 @@ function App() {
   return (
     <div
       className="App"
-    // onMouseMove={handleMouseMove}
+    // style={{ backgroundColor: color.bg }}
     >
       <div className={loadingClass}></div>
       {!projectsPosition && <div className="logo" style={{ transform: matrix }} onClick={handleClick}>
@@ -59,13 +59,13 @@ function App() {
       </div>}
       <div className="frame"></div>
       <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
-        <div className="leftTriangle" style={{ backgroundColor: color }}></div>
+        <div className="leftTriangle" style={{ backgroundColor: color.triangle }}></div>
       </motion.div>
 
-      <Main />
-      <Projects />
-      <About />
-      <Contact />
+      <Main loading={loading} />
+      <Projects loading={loading} />
+      <About loading={loading} />
+      <Contact loading={loading} />
       <Icons />
     </div>
   )

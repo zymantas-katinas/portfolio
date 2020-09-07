@@ -69,6 +69,8 @@ select {
   position: absolute;
   pointer-events: none;
   bottom: 10px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 
 .leftTriangle, .rightTriangle {
@@ -90,6 +92,11 @@ body {
   overflow: hidden;
 }
 
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+
 .loading-screen {
   position: absolute;
   height: 100%;
@@ -106,15 +113,15 @@ body {
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  opacity: 0.8;
+  opacity: 1;
   -webkit-transition: 0s cubic-bezier(0.06, 0.9, 0, 1.07);
   transition: 0s cubic-bezier(0.06, 0.9, 0, 1.07);
   pointer-events: none;
 }
 
 .loading-screen-off {
-  -webkit-transition: 4s cubic-bezier(0.12, 0.29, 0.15, 0.97);
-  transition: 4s cubic-bezier(0.12, 0.29, 0.15, 0.97);
+  -webkit-transition: 1s cubic-bezier(0, 0.17, 0.15, 0.55);
+  transition: 1s cubic-bezier(0, 0.17, 0.15, 0.55);
   opacity: 0;
 }
 
@@ -302,10 +309,8 @@ body {
 }
 
 .rightTriangle {
-  right: -23%;
+  right: -52%;
   z-index: 99999;
-  cursor: pointer;
-  pointer-events: all;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
 }

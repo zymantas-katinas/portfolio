@@ -19,6 +19,9 @@ $disabled: #36333c;
   position: absolute;
   pointer-events: none;
   bottom: 10px;
+  transition: background-color 0.5s;
+  // transition: transform 2s;
+  // transition: 1.5s;
 }
 %triangleUp {
   @extend %triangleDown;
@@ -41,6 +44,11 @@ body {
   overflow: hidden;
   // pointer-events: none;
 }
+.App {
+  // background-color: #1b3a48;
+  width: 100vw;
+  height: 100vh;
+}
 
 .loading-screen {
   position: absolute;
@@ -53,11 +61,11 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  opacity: 0.8;
+  opacity: 1;
   transition: 0s cubic-bezier(0.06, 0.9, 0, 1.07);
   pointer-events: none;
   &-off {
-    transition: 4s cubic-bezier(0.12, 0.29, 0.15, 0.97);
+    transition: 1s cubic-bezier(0, 0.17, 0.15, 0.55);
 
     opacity: 0;
 
@@ -196,10 +204,10 @@ body {
 
 .rightTriangle {
   @extend %triangleUp;
-  // right: -52%;
-  right: -23%;
+  right: -52%;
   z-index: 99999;
-  cursor: pointer;
-  pointer-events: all;
   transform: translateX(-50%);
+  // width: 11%;;
+  // right: 0;
+  // padding: 0;
 }

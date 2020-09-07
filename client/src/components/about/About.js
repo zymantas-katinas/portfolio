@@ -5,18 +5,18 @@ import { aboutSelected, contactAway, mainAway, projectsAway } from "../../action
 import { AnimatePresence, motion } from "framer-motion"
 import { aboutVariants } from "../../variants"
 
-function About() {
+function About(props) {
   const position = useSelector((state) => state.aboutPosition)
   const dispatch = useDispatch()
   const [trianglePos, setTrianglePos] = useState(0)
-  const color = useSelector((state) => state.colorNumber)
+  const color = useSelector((state) => state.colorNumber.triangle)
 
   const handleClick = () => {
     dispatch(aboutSelected())
     dispatch(projectsAway())
     dispatch(mainAway())
     dispatch(contactAway())
-    setTrianglePos(-3)
+    setTrianglePos(-1)
     setTimeout(() => {
       setTrianglePos(0)
     }, 200)
@@ -28,7 +28,15 @@ function About() {
         initial={{ y: "-100vh" }}
         animate={{ y: `${trianglePos}vh` }}
         // transition={{ duration: 0.6, delay: 0.2 }}
-        transition={{ duration: 0.8 }}
+        transition={
+          !props.loading ? {
+            duration: 0.1
+          } :
+            {
+              duration: 0.6,
+              delay: 1.2
+            }
+        }
         className="about"
       >
         <div className={`about__triangle ${position && "selected"}`} style={{ backgroundColor: color }}>
