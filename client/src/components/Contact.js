@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react"
-// import ContactForm from "./ContactForm"
 import ContactForm from "./ContactFormik"
 import { useSelector, useDispatch } from "react-redux"
 import { contactSelected, aboutAway, mainAway, projectsAway, setColor } from "../actions"
@@ -35,24 +34,14 @@ function Contact(props) {
   useEffect(() => {
     top === 80 && setDir(false)
     top === 16 && setDir(true)
-    console.log(dir)
-    mainPosition &&
+
+    contactPosition ? setTop(80) :
       setTimeout(() => {
         dir ? setTop(top + 2) : setTop(top - 2)
       }, 500)
 
-    aboutPosition ? setTop(50) :
-      projectsPosition ? setTop(16) :
-        contactPosition && setTop(80)
-
-
   }, [aboutPosition, contactPosition, projectsPosition, mainPosition, top])
 
-
-  // useEffect(() => {
-  //   // top % 5 === 0 &&
-  //   dispatch(setColor(top))
-  // }, [top])
 
   const pxPerMove = parseInt(window.innerHeight / 100, 10)
 
@@ -86,8 +75,6 @@ function Contact(props) {
         style={{
           backgroundColor: color,
           transform: `translateY(${top * pxPerMove}px)`,
-          // top: top + "%",
-          // transition: '1s'
         }}
       ></div>
 

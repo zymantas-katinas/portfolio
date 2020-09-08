@@ -69,8 +69,8 @@ select {
   position: absolute;
   pointer-events: none;
   bottom: 10px;
-  -webkit-transition: background-color 0.5s;
-  transition: background-color 0.5s;
+  -webkit-transition: background-color 2s linear;
+  transition: background-color 2s linear;
 }
 
 .leftTriangle, .rightTriangle {
@@ -312,8 +312,10 @@ body {
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   will-change: transform;
-  -webkit-transition: 0.5s linear;
-  transition: 0.5s linear;
+  -webkit-transition: background-color 2s linear, -webkit-transform 0.5s linear;
+  transition: background-color 2s linear, -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear, background-color 2s linear;
+  transition: transform 0.5s linear, background-color 2s linear, -webkit-transform 0.5s linear;
 }
 
 .main {
