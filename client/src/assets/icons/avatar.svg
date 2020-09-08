@@ -1,8 +1,4 @@
-import React from 'react'
-
-function Avatar() {
-    return (
-        <svg width="104" height="120" viewBox="0 0 264 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="104" height="120" viewBox="0 0 264 280" fill="none" xmlns="http://www.w3.org/2000/svg">
             <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="12" y="40" width="240" height="240">
                 <path d="M132 280C198.274 280 252 226.274 252 160C252 93.7258 198.274 40 132 40C65.7258 40 12 93.7258 12 160C12 226.274 65.7258 280 132 280Z" fill="white" />
             </mask>
@@ -62,7 +58,3 @@ function Avatar() {
                 </g>
             </g>
         </svg>
-    )
-}
-
-export default Avatar

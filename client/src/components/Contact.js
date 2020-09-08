@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import ContactForm from "./ContactFormik"
 import { useSelector, useDispatch } from "react-redux"
-import { contactSelected, aboutAway, mainAway, projectsAway, setColor } from "../actions"
+import { contactSelected, aboutAway, mainAway, projectsAway } from "../actions"
 import { motion } from "framer-motion"
 
 function Contact(props) {
@@ -9,11 +9,6 @@ function Contact(props) {
   const [top, setTop] = useState(80)
   const [dir, setDir] = useState(true)
   const contactPosition = useSelector((state) => state.contactPosition)
-  const aboutPosition = useSelector((state) => state.aboutPosition)
-  const projectsPosition = useSelector((state) => state.projectsPosition)
-  const mainPosition = useSelector((state) => state.mainPosition)
-
-  const color = useSelector((state) => state.colorNumber.triangle)
 
   const triangleRef = useRef()
 
@@ -30,7 +25,6 @@ function Contact(props) {
     }, 200)
   }
 
-
   useEffect(() => {
     top === 80 && setDir(false)
     top === 16 && setDir(true)
@@ -40,7 +34,7 @@ function Contact(props) {
         dir ? setTop(top + 2) : setTop(top - 2)
       }, 500)
 
-  }, [aboutPosition, contactPosition, projectsPosition, mainPosition, top])
+  }, [contactPosition, dir, top])
 
 
   const pxPerMove = parseInt(window.innerHeight / 100, 10)
@@ -61,7 +55,7 @@ function Contact(props) {
         }
         className="contact"
       >
-        <div className={`contact__triangle ${contactPosition && "selectedContact"}`} style={{ backgroundColor: color }}>
+        <div className={`contact__triangle ${contactPosition && "selectedContact"}`}>
           <h2 onClick={handleClick}>Hire Me</h2>
         </div>
       </motion.div>
@@ -73,7 +67,6 @@ function Contact(props) {
         className="rightTriangle"
         ref={triangleRef}
         style={{
-          backgroundColor: color,
           transform: `translateY(${top * pxPerMove}px)`,
         }}
       ></div>

@@ -11,21 +11,12 @@ import { motion } from "framer-motion"
 import classnames from "classnames"
 
 function App() {
-  const [side, setSide] = useState(0)
-  const [up, setUp] = useState(0)
   const [loading, setLoading] = useState(true)
-  const color = useSelector((state) => state.colorNumber)
 
-  const matrix = `matrix3d(1, 0, 0, ${side}, 0, 1, 0, ${up}, 0, 0, 1, 0, 0, 0, 0, 1)`
   const dispatch = useDispatch()
   const projectsPosition = useSelector((state) => state.projectsPosition)
 
-  // const handleMouseMove = (e) => {
-  //   const posUp = e.pageY - window.innerHeight / 2
-  //   const posSide = e.pageX - window.innerWidth / 2
-  //   setSide(posSide / 150000)
-  //   setUp(posUp / 150000)
-  // }
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false)
@@ -51,15 +42,14 @@ function App() {
   return (
     <div
       className="App"
-    // style={{ backgroundColor: color.bg }}
     >
       <div className={loadingClass}></div>
-      {!projectsPosition && <div className="logo" style={{ transform: matrix }} onClick={handleClick}>
+      {!projectsPosition && <div className="logo" onClick={handleClick}>
         ZK&nbsp;&nbsp;&nbsp;.
       </div>}
       <div className="frame"></div>
       <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
-        <div className="leftTriangle" style={{ backgroundColor: color.triangle }}></div>
+        <div className="leftTriangle"></div>
       </motion.div>
 
       <Main loading={loading} />

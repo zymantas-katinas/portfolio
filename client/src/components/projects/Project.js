@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import projectsData from "./projectData.json"
 import { useSelector } from "react-redux"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css"
 import { childVariants, projectInfoVariants } from "../../variants"
@@ -54,11 +54,8 @@ function Project() {
   return (
     <div className="swiper-container" style={{ zIndex: position ? 100 : -1 }}>
       <div className="swiper-wrapper">
-        {/* <motion.div initial={false} animate={position ? "open" : "closed"} className="swiper-wrapper"> */}
         {allProjects}
-        {/* </motion.div> */}
       </div>
-      {/* <div className="swiper-pagination"></div> */}
     </div>
   )
 }

@@ -8,7 +8,6 @@ function Projects(props) {
   const position = useSelector((state) => state.projectsPosition)
   const [trianglePos, setTrianglePos] = useState(0)
   const dispatch = useDispatch()
-  const color = useSelector((state) => state.colorNumber.triangle)
 
   const handleClick = () => {
     dispatch(projectsSelected())
@@ -27,7 +26,6 @@ function Projects(props) {
       <motion.div
         initial={{ y: "-100vh" }}
         animate={{ y: `${trianglePos}vh` }}
-        // transition={{ duration: 0.6, delay: 0.4 }}
         transition={
           !props.loading ? {
             duration: 0.1
@@ -39,7 +37,7 @@ function Projects(props) {
         }
         className="projects"
       >
-        <div className={`projects__triangle ${position && "selected"}`} style={{ backgroundColor: color }}>
+        <div className={`projects__triangle ${position && "selected"}`} >
           <h2 onClick={handleClick}>Projects</h2>
         </div>
       </motion.div>

@@ -6,8 +6,6 @@ import { AnimatePresence, motion } from "framer-motion"
 import { iconsVariants } from "../variants"
 
 function Icons() {
-  const position = useSelector((state) => state.projectsPosition)
-  const mainPosition = useSelector((state) => state.mainPosition)
   const contactPosition = useSelector((state) => state.contactPosition)
   const aboutPosition = useSelector((state) => state.aboutPosition)
 
@@ -16,11 +14,11 @@ function Icons() {
       {(contactPosition || aboutPosition) && (
         <motion.div variants={iconsVariants} initial="hidden" animate="visible" exit="hidden" className="bottom-info">
           <div className="bottom-info__icons">
-            <a href="https://www.linkedin.com/in/zymantas-katinas/" target="_blank"><FaLinkedin /></a>
-            <a href="https://github.com/zymantas-katinas" target="_blank"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/zymantas-katinas/" rel="noopener noreferrer" target="_blank"><FaLinkedin /></a>
+            <a href="https://github.com/zymantas-katinas" rel="noopener noreferrer"  target="_blank"><FaGithub /></a>
 
             <div className="bottom-info__icons-upwork">
-              <a href="https://www.upwork.com/o/profiles/users/~01b3688dcac59550db/" target="_blank">
+              <a href="https://www.upwork.com/o/profiles/users/~01b3688dcac59550db/" rel="noopener noreferrer" target="_blank">
                 <Upwork />
               </a>
             </div>
