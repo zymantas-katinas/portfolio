@@ -49,14 +49,16 @@ function Project() {
             <motion.h1 variants={childVariants}>{item.title}</motion.h1>
             <motion.p variants={childVariants}>{item.paragraph}</motion.p>
             </div>
+            <div>
+            {item.tools && 
             <motion.div variants={childVariants} className ="project__info-tools">
               <h3>Tools:</h3>
               <div className ="project__info-tools-icons">
-              {item.tools && item.tools.map((item) =>  {
+              {item.tools.map((item) =>  {
                return iconMap[item]
               })}
               </div>
-            </motion.div>
+            </motion.div>}
             <motion.div variants={childVariants} className ="project__info-links">
             {item.link &&
              <a href={item.link} rel="noreferrer" target="_blank">
@@ -69,6 +71,7 @@ function Project() {
               </a>}
            
             </motion.div>
+            </div>
          
           </motion.div>
           <motion.div variants={childVariants} className="project__gallery">

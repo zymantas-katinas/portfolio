@@ -1,8 +1,9 @@
 [
     {
-        "title": "Personal Photography Portfolio",
-        "paragraph": "A high-intensity program where I have participated as a full-stack developer working with React.js and Java. With great effort and Agile methodology, in one month, our team has managed to create a fully-functional application for online-schooling to make studying and teaching easier at home during the pandemic.",
-        "link": "https://www.dviesepoazija.lt",
+        "title": "Online School Platform LEON",
+        "paragraph": "Developed this project with a team in a high-intensity internship program where I have participated as a full-stack developer working with React.js and Java. In one month, our team has managed to create a fully-functional application for online-schooling to make studying and teaching easier at home during the pandemic.",
+        "paragraph2": "The user of this application is able to communicate",
+        "link": "https://github.com/zymantas-katinas/leon",
         "gitlink": "https://github.com/zymantas-katinas/leon",
         "img": [
             "/images/projects/leon/3.png",
@@ -11,18 +12,26 @@
         ],
         "tools": [
             "react",
+            "typescript",
             "sass",
             "git",
-            "java",
-            "npm",
-            "typescript"
+            "java"
         ]
     },
     {
         "title": "My second Website",
         "paragraph": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
         "link": "https://www.dviesepoazija.lt",
-        "img": []
+        "gitlink": "https://github.com/zymantas-katinas/leon",
+        "img": [],
+        "tools": [
+            "react",
+            "sass",
+            "git",
+            "java",
+            "npm",
+            "typescript"
+        ]
     },
     {
         "title": "My third Website",

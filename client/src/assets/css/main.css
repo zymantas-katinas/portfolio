@@ -523,6 +523,10 @@ body {
   font-weight: 500;
 }
 
+.project__info-tools {
+  margin-bottom: 3rem;
+}
+
 .project__info-tools-icons {
   display: -webkit-box;
   display: -ms-flexbox;
