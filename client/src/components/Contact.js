@@ -8,6 +8,7 @@ function Contact(props) {
   const [trianglePos, setTrianglePos] = useState(0)
   const [top, setTop] = useState(80)
   const [dir, setDir] = useState(true)
+  const [windowHeight, setWindowHeight] = useState(0);
   const contactPosition = useSelector((state) => state.contactPosition)
 
   const triangleRef = useRef()
@@ -24,21 +25,23 @@ function Contact(props) {
       setTrianglePos(0)
     }, 200)
   }
-
   useEffect(() => {
-    top === 80 && setDir(false)
-    top === 16 && setDir(true)
+    setWindowHeight(window.innerHeight)
+  }, [])
+  // useEffect(() => {
+  //   top === 80 && setDir(false)
+  //   top === 16 && setDir(true)
 
-    contactPosition ? setTop(80) :
-      setTimeout(() => {
-        dir ? setTop(top + 2) : setTop(top - 2)
-      }, 500)
+  //   contactPosition ? setTop(80) :
+  //     setTimeout(() => {
+  //       dir ? setTop(top + 4) : setTop(top - 4)
+  //       console.log(top)
+  //     }, 1000)
 
-  }, [contactPosition, dir, top])
+  // }, [contactPosition, dir, top])
 
 
-  const pxPerMove = parseInt(window.innerHeight / 100, 10)
-
+  const pxPerMove = windowHeight !== 0 ? parseInt(windowHeight / 100, 10): 5
   return (
     <div>
       <motion.div

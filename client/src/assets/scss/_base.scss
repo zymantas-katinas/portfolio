@@ -1,6 +1,8 @@
 // colors
-$triangle: #3be6a638;
-$background: #1b3a48;
+// $triangle: #3be6a638;
+$triangle: #00ff9424;
+// $background: #1b3a48;
+$background: #163939;
 $frame: #11272f;
 $lightText: #ffffff6c;
 $lightestText: #ffffffdb;
@@ -37,7 +39,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: $background;
-  // position: relative;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   // will-change: scroll-position;
   overflow: hidden;
@@ -54,7 +56,6 @@ body {
   height: 100%;
   width: 100%;
   background-color: #1b3a48;
-  // background-color: #fdfdff;
   z-index: 999999;
   display: flex;
   justify-content: center;
