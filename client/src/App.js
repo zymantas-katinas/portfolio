@@ -5,8 +5,9 @@ import About from "./components/about/About"
 import Projects from "./components/projects/Projects"
 import Contact from "./components/Contact"
 import Icons from "./components/Icons"
+import Navbar from "./components/Navbar"
 import { useDispatch, useSelector } from "react-redux"
-import { mainSelected, contactAway, aboutAway, projectsAway } from "./actions"
+import { mainSelected, contactAway, aboutAway, projectsAway, setTrianglesBack } from "./actions"
 import { motion } from "framer-motion"
 import classnames from "classnames"
 
@@ -28,6 +29,7 @@ function App() {
     dispatch(aboutAway())
     dispatch(projectsAway())
     dispatch(contactAway())
+    dispatch(setTrianglesBack())
     setLoading(true)
     setTimeout(() => {
       setLoading(false)
@@ -51,7 +53,7 @@ function App() {
       <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
         <div className="leftTriangle"></div>
       </motion.div>
-      <div className = "navbar"><h1>Projects</h1><h1>Who am I?</h1><h1>Hire me</h1></div>
+      <Navbar />
       <Main loading={loading} />
       <Projects loading={loading} />
       <About loading={loading} />

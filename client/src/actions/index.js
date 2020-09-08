@@ -1,11 +1,14 @@
-//COLOR 
-export const setColor = (num) => {
+//TRIANGLES
+export const setTrianglesAway = () => {
   return {
-    type: "COLOR_SET",
-    val: num,
+    type: "TRIANGLES_AWAY",
   }
 }
-
+export const setTrianglesBack = () => {
+  return {
+    type: "TRIANGLES_BACK",
+  }
+}
 
 //MAIN
 export const mainAway = () => {

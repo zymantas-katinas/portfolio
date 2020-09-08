@@ -4,42 +4,37 @@ import { useSelector, useDispatch } from "react-redux"
 import { projectsSelected, contactAway, mainAway, aboutAway } from "../../actions"
 import { motion } from "framer-motion"
 
-function Projects(props) {
-  const position = useSelector((state) => state.projectsPosition)
-  const [trianglePos, setTrianglePos] = useState(0)
-  const dispatch = useDispatch()
-
-  const handleClick = () => {
-    dispatch(projectsSelected())
-    dispatch(aboutAway())
-    dispatch(mainAway())
-    dispatch(contactAway())
-    setTrianglePos(-1)
-    setTimeout(() => {
-      setTrianglePos(0)
-    }, 200)
+const trianglesVariants = {
+  hidden: {
+    y: "-100vh"
+  },
+  default: {
+    y: 0
   }
+}
+
+function Projects(props) {
+  const trianglesPos = useSelector((state) => state.trianglesPos)
 
   return (
     <div>
       <Project />
       <motion.div
-        initial={{ y: "-100vh" }}
-        animate={{ y: `${trianglePos}vh` }}
-        transition={
-          !props.loading ? {
-            duration: 0.1
-          } :
-            {
-              duration: 0.6,
-              delay: 1.4
-            }
-        }
+         variants = {trianglesVariants}
+         initial="hidden"
+         animate={trianglesPos ? "default" : "hidden"}
+         transition={
+           !props.loading ? {
+             duration: 0.1
+           } :
+             {
+               duration: 0.6,
+               delay: 1.4
+             }
+         }
         className="projects"
       >
-        <div className={`projects__triangle ${position && "selected"}`} >
-          <h2 onClick={handleClick}>Projects</h2>
-        </div>
+        <div className={`projects__triangle`} />
       </motion.div>
     </div>
   )

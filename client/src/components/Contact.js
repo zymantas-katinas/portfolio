@@ -1,66 +1,60 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState, useEffect } from "react"
 import ContactForm from "./ContactFormik"
-import { useSelector, useDispatch } from "react-redux"
-import { contactSelected, aboutAway, mainAway, projectsAway } from "../actions"
+import { useSelector} from "react-redux"
 import { motion } from "framer-motion"
 
+
+const trianglesVariants = {
+  hidden: {
+    y: "-100vh"
+  },
+  default: {
+    y: 0
+  }
+}
+
+const rightVariants = {
+  hidden: {
+    y: window.innerHeight + 200,
+    transition: { duration: 1 },
+  },
+  default: {
+    y: window.innerHeight - window.innerHeight / 4,
+    transition: { duration: 1 },
+  },
+  selected: {
+    y: window.innerHeight - window.innerHeight / 4,
+    transition: { duration: 1 },
+  },
+  unselected: {
+    y: [
+      window.innerHeight - window.innerHeight / 4,
+       50,
+       window.innerHeight - window.innerHeight / 4,
+    ],
+    transition: { duration: 20, loop: Infinity, ease: "easeInOut" },
+  },
+}
+
+
 function Contact(props) {
-  const [trianglePos, setTrianglePos] = useState(0)
   const [pos, setPos] = useState(true)
-  const [windowHeight, setWindowHeight] = useState(0);
+  const trianglesPos = useSelector((state) => state.trianglesPos)
   const contactPosition = useSelector((state) => state.contactPosition)
 
-  const triangleRef = useRef()
-
-  const dispatch = useDispatch()
-  const handleClick = () => {
-    dispatch(contactSelected())
-    dispatch(projectsAway())
-    dispatch(mainAway())
-    dispatch(aboutAway())
-    setTrianglePos(-1)
-
-    setTimeout(() => {
-      setTrianglePos(0)
-    }, 200)
-  }
   useEffect(() => {
-    setWindowHeight(window.innerHeight)
     setTimeout(() => {
       setPos(false)
     }, 2000)
   }, [])
 
-  const variants = {
-    hidden: {
-      y: window.innerHeight + 200,
-      transition: { duration: 1 },
-    },
-    default: {
-      y: window.innerHeight - window.innerHeight / 4,
-      transition: { duration: 1 },
-    },
-    selected: {
-      y: window.innerHeight - window.innerHeight / 4,
-      transition: { duration: 1 },
-    },
-    unselected: {
-      y: [
-        window.innerHeight - window.innerHeight / 4,
-         50,
-         window.innerHeight - window.innerHeight / 4,
-      ],
-      transition: { duration: 20, loop: Infinity, ease: "easeInOut" },
-    },
-  }
 
-
-  // const pxPerMove = windowHeight !== 0 ? parseInt(windowHeight / 100, 10): 5
   return (
     <div>
       <motion.div
-        initial={{ y: "-100vh" }}
-        animate={{ y: `${trianglePos}vh` }}
+         variants = {trianglesVariants}
+        initial="hidden"
+        animate={trianglesPos ? "default" : "hidden"}
         transition={
           !props.loading ? {
             duration: 0.1
@@ -72,22 +66,20 @@ function Contact(props) {
         }
         className="contact"
       >
-        <div className={`contact__triangle ${contactPosition && "selectedContact"}`}>
-          <h2 onClick={handleClick}>Hire Me</h2>
+        <div className={`contact__triangle`}>
         </div>
       </motion.div>
+
       <motion.div initial={false} animate={contactPosition ? "open" : "closed"}>
         <ContactForm position={contactPosition} />
       </motion.div>
      <motion.div
-        variants={variants}
+        variants={rightVariants}
         initial="hidden"
         animate={contactPosition ? "selected" : `${pos ? "default" : "unselected"}`}
       >
       <div
         className="rightTriangle"
-        ref={triangleRef}
-
       ></div>
      </motion.div>
 

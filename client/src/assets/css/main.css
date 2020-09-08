@@ -59,7 +59,7 @@ select {
   font: inherit;
 }
 
-.leftTriangle, .rightTriangle, .about__info-triangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
+.leftTriangle, .rightTriangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
   height: 100vh;
   width: 60%;
   -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
@@ -71,7 +71,7 @@ select {
   bottom: 10px;
 }
 
-.leftTriangle, .rightTriangle, .about__info-triangle {
+.leftTriangle, .rightTriangle {
   top: 0;
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -428,10 +428,6 @@ body {
   top: 0;
   left: 9%;
   pointer-events: none;
-}
-
-.projects h2, .about h2, .contact h2 {
-  display: none;
 }
 
 .swiper-container {
@@ -930,7 +926,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  .leftTriangle, .rightTriangle, .about__info-triangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
+  .leftTriangle, .rightTriangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
     width: 100%;
     -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
             clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
@@ -942,7 +938,7 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .leftTriangle h2, .rightTriangle h2, .about__info-triangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
+  .leftTriangle h2, .rightTriangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
     -webkit-transform: translate(0%);
             transform: translate(0%);
     font-size: 1rem;
@@ -1118,7 +1114,7 @@ body {
   .bottom-info {
     display: none;
   }
-  .leftTriangle h2, .rightTriangle h2, .about__info-triangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
+  .leftTriangle h2, .rightTriangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
     display: none;
   }
   .contact__info-top {

@@ -31,8 +31,6 @@
     svg {
       z-index: 999;
     }
-    &-triangle {
-      @extend %triangleUp;
-    }
+
   }
 }

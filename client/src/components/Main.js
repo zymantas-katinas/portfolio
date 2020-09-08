@@ -4,8 +4,6 @@ import { AnimatePresence, motion } from "framer-motion"
 
 function Main(props) {
   const position = useSelector((state) => state.mainPosition)
-  const color = useSelector((state) => state.colorNumber.triangle)
-
 
   const mainVariants = {
     hidden: {

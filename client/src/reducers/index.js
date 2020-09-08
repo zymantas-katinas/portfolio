@@ -2,7 +2,7 @@ import contactPositionReducer from "./contactPosition"
 import projectsPositionReducer from "./projectsPosition"
 import mainPositionReducer from "./mainPosition"
 import aboutPositionReducer from "./aboutPosition"
-import colorNumberReducer from "./colorNumber"
+import trianglesPosReducer from './trianglesPos'
 import { combineReducers } from "redux"
 
 const allReducers = combineReducers({
@@ -10,7 +10,7 @@ const allReducers = combineReducers({
   contactPosition: contactPositionReducer,
   mainPosition: mainPositionReducer,
   aboutPosition: aboutPositionReducer,
-  colorNumber: colorNumberReducer,
+  trianglesPos: trianglesPosReducer,
 })
 
 export default allReducers
