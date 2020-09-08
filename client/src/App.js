@@ -11,11 +11,35 @@ import { mainSelected, contactAway, aboutAway, projectsAway, setTrianglesBack } 
 import { motion } from "framer-motion"
 import classnames from "classnames"
 
+const leftVariants = {
+  hidden: {
+    y: window.innerHeight + 200,
+    transition: { duration: 1 },
+  },
+  default: {
+    y: 100,
+    transition: { duration: 1 },
+  },
+  selected: {
+    y: 100,
+    transition: { duration: 1 },
+  },
+  // unselected: {
+  //   y: [
+  //     100,
+  //   200,
+  //      100,
+  //   ],
+  //   transition: { duration: 30, loop: Infinity, ease: "easeInOut" },
+  // },
+}
+
 function App() {
   const [loading, setLoading] = useState(true)
 
   const dispatch = useDispatch()
   const projectsPosition = useSelector((state) => state.projectsPosition)
+  const mainPosition = useSelector((state) => state.mainPosition)
 
 
   useEffect(() => {
@@ -50,7 +74,11 @@ function App() {
         ZK&nbsp;&nbsp;&nbsp;.
       </div>}
       <div className="frame"></div>
-      <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
+      <motion.div       
+        variants={leftVariants}
+        initial="hidden"
+        animate={mainPosition ? "selected" : "unselected"}
+        >
         <div className="leftTriangle"></div>
       </motion.div>
       <Navbar />

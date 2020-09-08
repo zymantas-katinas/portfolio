@@ -28,14 +28,16 @@ function Main(props) {
 
         <motion.div variants={mainVariants} initial="hidden" animate="visible" exit="hidden">
           <div className="main">
-            <div className="main__triangle" ></div>
             {position && (
               // <h1></h1>
+              <>
+              <div className="main__triangle" />
               <h1 className="main__heading">
                 <div className="main__heading-name">Hi, I am Zymantas, <br /></div>
                 I <span>Design</span> and <span>Develop</span> <br />
                 Unique <span>Websites.</span>
               </h1>
+              </>
                 )}
           </div>
         </motion.div>

@@ -54,11 +54,14 @@ body {
   justify-content: flex-end;
   width: 100%;
   padding: 22px 5%;
-  z-index: 999;
+  z-index: 99;
   pointer-events: none;
   position: absolute;
-  h1 {
+  div {
     margin-left: 13%;
+  }
+  h2 {
+  
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     pointer-events: all;
     color: #ffffffdb;
@@ -90,7 +93,7 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #1b3a48;
+  background-color: #163a39;
   z-index: 999999;
   display: flex;
   justify-content: center;
@@ -235,6 +238,8 @@ body {
   @extend %triangleUp;
   left: 67px;
   transform: translateX(-50%);
+  // transform: translateZ(0);
+  will-change: transform;
 }
 
 .rightTriangle {

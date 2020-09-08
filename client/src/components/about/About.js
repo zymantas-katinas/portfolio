@@ -27,11 +27,12 @@ function About(props) {
          animate={trianglesPos ? "default" : "hidden"}
         transition={
           !props.loading ? {
-            duration: 0.1
+            delay: 0.1,
+            duration: 0.5
           } :
             {
               duration: 0.6,
-              delay: 1.2
+              delay: 1
             }
         }
         className="about"

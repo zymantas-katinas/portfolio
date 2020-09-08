@@ -1,6 +1,9 @@
 import React from "react"
 import { motion } from "framer-motion"
 import {ReactComponent as Avatar} from '../../assets/icons/avatar.svg'
+import { FaReact, FaJsSquare, FaSass, FaGitAlt, FaJava } from "react-icons/fa"
+import { DiNpm } from "react-icons/di"
+import {ReactComponent as Typescript} from '../../assets/icons/typescript.svg'
 
 const variants = {
   open: {
@@ -36,13 +39,18 @@ function AboutMe(props) {
       </motion.div>
       <motion.h1 variants={childVariants}>About Me</motion.h1>
       <motion.p variants={childVariants}>
-          My name is Zymantas. I am a developer as well as an artist.
-Apart from being immersed in creative projects, for the last year, I have been diving deep into web development to merge my technical and artistic sides. I have managed to get decent experience with some of the most popular web development tools, such as React.js, and looking forward to growing further in this field. 
+      &nbsp;&nbsp;&nbsp; My name is Zymantas. I am a developer as well as an artist.
+        Apart from being immersed in creative projects, for the last year, I have been diving deep into web development to merge my technical and artistic sides. I have managed to get decent experience with some of the most popular web development tools, such as React.js, and looking forward to growing further in this field. 
       </motion.p>
-      {/* <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}> */}
-      {/* <motion.div>
-        <div className="about__info-triangle"></div>
-      </motion.div> */}
+      <motion.div variants={childVariants} className="about__info-icons">
+       <FaReact />
+       <FaJsSquare />
+       <FaSass />
+       <FaGitAlt />
+       <FaJava />
+       <DiNpm />
+       <Typescript />
+      </motion.div>
     </motion.div>
   )
 }

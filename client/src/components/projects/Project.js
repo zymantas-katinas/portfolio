@@ -5,6 +5,26 @@ import { motion } from "framer-motion"
 import Swiper from "swiper"
 import "swiper/css/swiper.min.css"
 import { childVariants, projectInfoVariants } from "../../variants"
+import { FaGithub } from "react-icons/fa"
+
+import { FaReact, FaSass, FaGitAlt, FaJava } from "react-icons/fa"
+import { DiNpm } from "react-icons/di"
+import {ReactComponent as Typescript} from '../../assets/icons/typescript.svg'
+
+// const react = <FaReact />
+// const sass = <FaSass />
+// const git = < FaGitAlt />
+// const java = <FaJava />
+// const npm = <DiNpm />
+// const typescript = <Typescript />
+const iconMap = {
+    react: <FaReact />,
+    sass: <FaSass />,
+    git:  <FaGitAlt />,
+    java: <FaJava />,
+    npm: <DiNpm />,
+    typescript: <Typescript />,
+}
 
 function Project() {
   const position = useSelector((state) => state.projectsPosition)
@@ -24,12 +44,32 @@ function Project() {
       <div className="swiper-slide" key={index} style={pointerEvents}>
         <motion.div initial={false} animate={position ? "open" : "closed"} className="project">
           <motion.div variants={projectInfoVariants} className="project__info">
+            <div>
             <motion.div className="swiper-pagination" variants={childVariants}></motion.div>
             <motion.h1 variants={childVariants}>{item.title}</motion.h1>
             <motion.p variants={childVariants}>{item.paragraph}</motion.p>
-            <motion.a href={item.link} variants={childVariants} target="_blank">
-              {item.link}
-            </motion.a>
+            </div>
+            <motion.div variants={childVariants} className ="project__info-tools">
+              <h3>Tools:</h3>
+              <div className ="project__info-tools-icons">
+              {item.tools && item.tools.map((item) =>  {
+               return iconMap[item]
+              })}
+              </div>
+            </motion.div>
+            <motion.div variants={childVariants} className ="project__info-links">
+            {item.link &&
+             <a href={item.link} rel="noreferrer" target="_blank">
+                {item.link}
+              </a>
+                }
+               {item.gitlink &&
+              <a href={item.gitlink} rel="noreferrer"  target="_blank">
+               <FaGithub />
+              </a>}
+           
+            </motion.div>
+         
           </motion.div>
           <motion.div variants={childVariants} className="project__gallery">
             {images}

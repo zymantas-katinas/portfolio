@@ -1,12 +1,21 @@
 [
     {
         "title": "Personal Photography Portfolio",
-        "paragraph": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
+        "paragraph": "A high-intensity program where I have participated as a full-stack developer working with React.js and Java. With great effort and Agile methodology, in one month, our team has managed to create a fully-functional application for online-schooling to make studying and teaching easier at home during the pandemic.",
         "link": "https://www.dviesepoazija.lt",
+        "gitlink": "https://github.com/zymantas-katinas/leon",
         "img": [
             "/images/projects/leon/3.png",
             "/images/projects/leon/1.png",
             "/images/projects/leon/2.png"
+        ],
+        "tools": [
+            "react",
+            "sass",
+            "git",
+            "java",
+            "npm",
+            "typescript"
         ]
     },
     {

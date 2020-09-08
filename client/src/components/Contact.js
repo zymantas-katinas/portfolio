@@ -19,21 +19,21 @@ const rightVariants = {
     transition: { duration: 1 },
   },
   default: {
-    y: window.innerHeight - window.innerHeight / 4,
+    y: window.innerHeight - window.innerHeight / 4 - 100,
     transition: { duration: 1 },
   },
   selected: {
-    y: window.innerHeight - window.innerHeight / 4,
+    y: window.innerHeight - window.innerHeight / 4 - 100,
     transition: { duration: 1 },
   },
-  unselected: {
-    y: [
-      window.innerHeight - window.innerHeight / 4,
-       50,
-       window.innerHeight - window.innerHeight / 4,
-    ],
-    transition: { duration: 20, loop: Infinity, ease: "easeInOut" },
-  },
+  // unselected: {
+  //   y: [
+  //     window.innerHeight - window.innerHeight / 4 - 100,
+  //      50,
+  //      window.innerHeight - window.innerHeight / 4 - 100,
+  //   ],
+  //   transition: { duration: 30, loop: Infinity, ease: "easeInOut" },
+  // },
 }
 
 
@@ -57,11 +57,12 @@ function Contact(props) {
         animate={trianglesPos ? "default" : "hidden"}
         transition={
           !props.loading ? {
-            duration: 0.1
+            delay: 0.2,
+            duration: 0.5
           } :
             {
               duration: 0.6,
-              delay: 1
+              delay: 0.8
             }
         }
         className="contact"
