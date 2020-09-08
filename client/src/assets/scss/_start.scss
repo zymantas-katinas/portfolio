@@ -12,20 +12,26 @@
     z-index: 9999;
   }
   &__heading {
-    // transition: 0.5s cubic-bezier(0.49, 0.64, 0, 0.91);
     opacity: 0.85;
     position: relative;
-    top: 45%;
-    left: 20%;
+    top: 32%;
+    left: 32%;
     text-align: center;
     z-index: 10;
-    font-size: 3rem;
-    font-weight: 300;
+    font-size: 3.5rem;
+    font-weight: 400;
     line-height: normal;
-    color: $lightestText;
+    color: #ffffffdb;
     text-transform: uppercase;
+    text-shadow: 3px 3px 10px rgba(22, 58, 57, 0.6);
     & span {
       font-weight: 600;
+    }
+    &-name  {
+      text-transform: initial;
+      font-weight: 300;
+      margin-bottom: 2rem;
+      font-size: 3rem;
     }
   }
   &__text {

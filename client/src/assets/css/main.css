@@ -59,7 +59,7 @@ select {
   font: inherit;
 }
 
-.leftTriangle, .rightTriangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
+.leftTriangle, .rightTriangle, .about__info-triangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
   height: 100vh;
   width: 60%;
   -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
@@ -69,11 +69,9 @@ select {
   position: absolute;
   pointer-events: none;
   bottom: 10px;
-  -webkit-transition: background-color 2s linear;
-  transition: background-color 2s linear;
 }
 
-.leftTriangle, .rightTriangle {
+.leftTriangle, .rightTriangle, .about__info-triangle {
   top: 0;
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
           clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -95,6 +93,60 @@ body {
 .App {
   width: 100vw;
   height: 100vh;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  padding: 22px 5%;
+  z-index: 999;
+  pointer-events: none;
+  position: absolute;
+}
+
+.navbar h1 {
+  margin-left: 13%;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  pointer-events: all;
+  color: #ffffffdb;
+  opacity: 0.7;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 600;
+  -webkit-transition: 0.5s cubic-bezier(0.1, 0.72, 0, 0.94);
+  transition: 0.5s cubic-bezier(0.1, 0.72, 0, 0.94);
+}
+
+.navbar h1:hover {
+  opacity: 1;
+}
+
+.navbar h1:hover:after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+.navbar h1:after {
+  display: block;
+  content: "";
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+  height: 3px;
+  background-color: #ffffffdb;
+  -webkit-transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
+  transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
 }
 
 .loading-screen {
@@ -127,7 +179,7 @@ body {
 
 .logo {
   font-size: 3rem;
-  color: #ffffffc4;
+  color: #9fc2b3;
   margin: 20px 40px;
   position: absolute;
   font-weight: 600;
@@ -313,10 +365,6 @@ body {
   -webkit-transform: translateZ(0);
           transform: translateZ(0);
   will-change: transform;
-  -webkit-transition: background-color 2s linear, -webkit-transform 0.5s linear;
-  transition: background-color 2s linear, -webkit-transform 0.5s linear;
-  transition: transform 0.5s linear, background-color 2s linear;
-  transition: transform 0.5s linear, background-color 2s linear, -webkit-transform 0.5s linear;
 }
 
 .main {
@@ -335,19 +383,27 @@ body {
 .main__heading {
   opacity: 0.85;
   position: relative;
-  top: 45%;
-  left: 20%;
+  top: 32%;
+  left: 32%;
   text-align: center;
   z-index: 10;
-  font-size: 3rem;
-  font-weight: 300;
+  font-size: 3.5rem;
+  font-weight: 400;
   line-height: normal;
   color: #ffffffdb;
   text-transform: uppercase;
+  text-shadow: 3px 3px 10px rgba(22, 58, 57, 0.6);
 }
 
 .main__heading span {
   font-weight: 600;
+}
+
+.main__heading-name {
+  text-transform: initial;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  font-size: 3rem;
 }
 
 .main__text {
@@ -375,48 +431,7 @@ body {
 }
 
 .projects h2, .about h2, .contact h2 {
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  pointer-events: all;
-  text-align: right;
-  color: #ffffffdb;
-  opacity: 0.7;
-  font-size: 1rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  float: right;
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
-  font-weight: 500;
-  -webkit-transition: 0.5s cubic-bezier(0.1, 0.72, 0, 0.94);
-  transition: 0.5s cubic-bezier(0.1, 0.72, 0, 0.94);
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-.projects h2:hover, .about h2:hover, .contact h2:hover {
-  opacity: 1;
-}
-
-.projects h2:hover:after, .about h2:hover:after, .contact h2:hover:after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-}
-
-.projects h2:after, .about h2:after, .contact h2:after {
-  display: block;
-  content: "";
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: 0% 100%;
-          transform-origin: 0% 100%;
-  height: 3px;
-  background-color: #ffffffdb;
-  -webkit-transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
-  transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
+  display: none;
 }
 
 .swiper-container {
@@ -539,69 +554,40 @@ body {
   color: #ffffffdb;
   position: absolute;
   height: 100vh;
-  padding: 0 28%;
-  top: 0;
+  padding: 0 30%;
+  top: 44%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   pointer-events: none;
   text-align: center;
-  padding-top: 150px;
   z-index: 9999;
 }
 
 .about__info p {
   text-align: left;
-  padding: 33px 0 0 0;
-}
-
-.about__info a {
-  margin-top: 20px;
-  z-index: 99999;
-  pointer-events: all;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 500;
-}
-
-.about__info a:hover:after {
-  width: 100%;
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-}
-
-.about__info a:after {
-  display: block;
-  content: "";
-  width: 100%;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transform-origin: 0% 100%;
-          transform-origin: 0% 100%;
-  height: 2px;
-  background-color: #ffffffdb;
-  -webkit-transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
-  transition: 0.3s cubic-bezier(0.01, 0.21, 0.35, 1);
+  padding: 1rem 0 0 0;
 }
 
 .about__info h1 {
   text-align: center;
-  padding: 30px 0 0 0;
+  padding: 1rem 0 0 0;
 }
 
 .about__info svg {
   z-index: 999;
-}
-
-.about__info .left {
-  shape-outside: polygon(5% 0%, 105% 100%, 0 100%);
-  float: left;
-  height: 100vh;
-  width: 50%;
-}
-
-.about__info .right {
-  shape-outside: polygon(95% 0%, 100% 100%, -5% 100%);
-  float: right;
-  height: 100vh;
-  width: 50%;
 }
 
 .contact {
@@ -642,7 +628,7 @@ body {
   left: 50%;
   top: 50%;
   position: fixed;
-  width: 27%;
+  width: 30%;
   z-index: 100;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -673,30 +659,31 @@ body {
   color: #fffffffc;
   padding-left: 15px;
   width: 100%;
+  text-shadow: 3px 3px 10px rgba(22, 58, 57, 0.4);
 }
 
 .contact__form input::-webkit-input-placeholder,
 .contact__form textarea::-webkit-input-placeholder {
   color: #ffffff6c;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .contact__form input:-ms-input-placeholder,
 .contact__form textarea:-ms-input-placeholder {
   color: #ffffff6c;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .contact__form input::-ms-input-placeholder,
 .contact__form textarea::-ms-input-placeholder {
   color: #ffffff6c;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .contact__form input::placeholder,
 .contact__form textarea::placeholder {
   color: #ffffff6c;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .contact__form input:focus,
@@ -720,9 +707,9 @@ body {
   -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   border-radius: 3px;
-  background-color: #24655c;
+  background-color: #22805a;
   color: #ffffffdb;
-  border: 1px solid #ffffffdb;
+  border: none;
   text-align: center;
   width: -moz-fit-content;
   width: -webkit-fit-content;
@@ -740,13 +727,13 @@ body {
 }
 
 .contact__form button:hover {
-  background-color: #ffffff24;
+  background-color: #206c51;
 }
 
 .contact__form button:disabled {
   background-color: transparent;
   color: #ffffff46;
-  border: 2px solid #908b94;
+  border: 2px solid #ffffff6c;
 }
 
 .contact__input {
@@ -768,8 +755,13 @@ body {
   margin-right: 0.5em;
 }
 
-.contact__info-top-over {
-  display: none;
+.contact__info-top {
+  text-shadow: 3px 3px 10px rgba(22, 58, 57, 0.4);
+  font-weight: 300;
+}
+
+.contact__info-top span {
+  font-weight: 600;
 }
 
 .selected h2 {
@@ -938,7 +930,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  .leftTriangle, .rightTriangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
+  .leftTriangle, .rightTriangle, .about__info-triangle, .main__triangle, .projects__triangle, .about__triangle, .contact__triangle {
     width: 100%;
     -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
             clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
@@ -950,7 +942,7 @@ body {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .leftTriangle h2, .rightTriangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
+  .leftTriangle h2, .rightTriangle h2, .about__info-triangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
     -webkit-transform: translate(0%);
             transform: translate(0%);
     font-size: 1rem;
@@ -1126,7 +1118,7 @@ body {
   .bottom-info {
     display: none;
   }
-  .leftTriangle h2, .rightTriangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
+  .leftTriangle h2, .rightTriangle h2, .about__info-triangle h2, .main__triangle h2, .projects__triangle h2, .about__triangle h2, .contact__triangle h2 {
     display: none;
   }
   .contact__info-top {

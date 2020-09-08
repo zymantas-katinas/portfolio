@@ -6,8 +6,7 @@ import { motion } from "framer-motion"
 
 function Contact(props) {
   const [trianglePos, setTrianglePos] = useState(0)
-  const [top, setTop] = useState(80)
-  const [dir, setDir] = useState(true)
+  const [pos, setPos] = useState(true)
   const [windowHeight, setWindowHeight] = useState(0);
   const contactPosition = useSelector((state) => state.contactPosition)
 
@@ -27,21 +26,36 @@ function Contact(props) {
   }
   useEffect(() => {
     setWindowHeight(window.innerHeight)
+    setTimeout(() => {
+      setPos(false)
+    }, 2000)
   }, [])
-  // useEffect(() => {
-  //   top === 80 && setDir(false)
-  //   top === 16 && setDir(true)
 
-  //   contactPosition ? setTop(80) :
-  //     setTimeout(() => {
-  //       dir ? setTop(top + 4) : setTop(top - 4)
-  //       console.log(top)
-  //     }, 1000)
+  const variants = {
+    hidden: {
+      y: window.innerHeight + 200,
+      transition: { duration: 1 },
+    },
+    default: {
+      y: window.innerHeight - window.innerHeight / 4,
+      transition: { duration: 1 },
+    },
+    selected: {
+      y: window.innerHeight - window.innerHeight / 4,
+      transition: { duration: 1 },
+    },
+    unselected: {
+      y: [
+        window.innerHeight - window.innerHeight / 4,
+         50,
+         window.innerHeight - window.innerHeight / 4,
+      ],
+      transition: { duration: 20, loop: Infinity, ease: "easeInOut" },
+    },
+  }
 
-  // }, [contactPosition, dir, top])
 
-
-  const pxPerMove = windowHeight !== 0 ? parseInt(windowHeight / 100, 10): 5
+  // const pxPerMove = windowHeight !== 0 ? parseInt(windowHeight / 100, 10): 5
   return (
     <div>
       <motion.div
@@ -65,14 +79,17 @@ function Contact(props) {
       <motion.div initial={false} animate={contactPosition ? "open" : "closed"}>
         <ContactForm position={contactPosition} />
       </motion.div>
-
+     <motion.div
+        variants={variants}
+        initial="hidden"
+        animate={contactPosition ? "selected" : `${pos ? "default" : "unselected"}`}
+      >
       <div
         className="rightTriangle"
         ref={triangleRef}
-        style={{
-          transform: `translateY(${top * pxPerMove}px)`,
-        }}
+
       ></div>
+     </motion.div>
 
     </div >
   )

@@ -48,7 +48,7 @@ const ContactForm = (props) => {
     return (
         <motion.div className="contact__form" style={pointerEvents} variants={variants}>
             <motion.p className="contact__info-top" variants={childVariants}>
-                Fill out your details, and I will get back to you shortly:
+                <span>Fill</span> out your <span>details</span>, and I will get back to you shortly:
            </motion.p>
             <Formik
                 initialValues={{

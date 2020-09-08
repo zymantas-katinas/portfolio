@@ -51,7 +51,7 @@ function App() {
       <motion.div initial={{ y: window.innerHeight + 200 }} animate={{ y: 150 }} transition={{ duration: 1 }}>
         <div className="leftTriangle"></div>
       </motion.div>
-
+      <div className = "navbar"><h1>Projects</h1><h1>Who am I?</h1><h1>Hire me</h1></div>
       <Main loading={loading} />
       <Projects loading={loading} />
       <About loading={loading} />
