@@ -14,24 +14,20 @@ import classnames from "classnames"
 const leftVariants = {
   hidden: {
     y: window.innerHeight + 200,
-    transition: { duration: 1 },
+    transition: { delay: 0, duration: 1 },
   },
   default: {
     y: 100,
-    transition: { duration: 1 },
+    transition: { ease: "easeInOut", delay: 0.6, duration: 1.4 },
   },
   selected: {
-    y: 100,
-    transition: { duration: 1 },
+    y: window.innerHeight - window.innerHeight / 5 + 10,
+    transition: { ease: "easeInOut", duration: 1 },
   },
-  // unselected: {
-  //   y: [
-  //     100,
-  //   200,
-  //      100,
-  //   ],
-  //   transition: { duration: 30, loop: Infinity, ease: "easeInOut" },
-  // },
+  unselected: {
+    y: window.innerHeight / 2,
+    transition: { ease: "easeInOut", duration: 1 },
+  },
 }
 
 function App() {
@@ -39,8 +35,8 @@ function App() {
 
   const dispatch = useDispatch()
   const projectsPosition = useSelector((state) => state.projectsPosition)
-  const mainPosition = useSelector((state) => state.mainPosition)
-
+  const contactPosition = useSelector((state) => state.contactPosition)
+  const aboutPosition = useSelector((state) => state.aboutPosition)
 
   useEffect(() => {
     setTimeout(() => {
@@ -60,25 +56,23 @@ function App() {
     }, 500)
   }
 
-  const loadingClass = classnames(
-    'loading-screen',
-    !loading && 'loading-screen-off'
-  )
+  const loadingClass = classnames("loading-screen", !loading && "loading-screen-off")
 
   return (
-    <div
-      className="App"
-    >
+    <div className="App">
       <div className={loadingClass}></div>
-      {!projectsPosition && <div className="logo" onClick={handleClick}>
-        ZK&nbsp;&nbsp;&nbsp;.
-      </div>}
+      {!projectsPosition && (
+        <div className="logo" onClick={handleClick}>
+          ZK&nbsp;&nbsp;&nbsp;.
+        </div>
+      )}
       <div className="frame"></div>
-      <motion.div       
+      <motion.div
         variants={leftVariants}
         initial="hidden"
-        animate={mainPosition ? "selected" : "unselected"}
-        >
+        // animate={mainPosition ? "selected" : "unselected"}
+        animate={contactPosition ? "selected" : aboutPosition ? "unselected" : projectsPosition ? "hidden" : "default"}
+      >
         <div className="leftTriangle"></div>
       </motion.div>
       <Navbar />

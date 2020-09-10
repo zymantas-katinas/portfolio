@@ -7,17 +7,13 @@ function Main(props) {
 
   const mainVariants = {
     hidden: {
-      // y: "-100vw",
-      opacity: 0,
+      // opacity: 0,
     },
     visible: {
-      // y: 0,
-      opacity: 1,
+      // opacity: 1,
       transition: {
         delay: 1,
-        duration: 3,
-        // type: "spring", 
-        // stiffness: 60 
+        duration: 2,
       }
     },
   }
@@ -29,13 +25,14 @@ function Main(props) {
         <motion.div variants={mainVariants} initial="hidden" animate="visible" exit="hidden">
           <div className="main">
             {position && (
-              // <h1></h1>
               <>
               <div className="main__triangle" />
               <h1 className="main__heading">
-                <div className="main__heading-name">Hi, I am Zymantas, <br /></div>
+                <div className="main__heading-name">Hi, I am Zymantas,<br /></div>
+                <div>
                 I <span>Design</span> and <span>Develop</span> <br />
                 Unique <span>Websites.</span>
+                </div>
               </h1>
               </>
                 )}

@@ -1,41 +1,44 @@
 [
     {
-        "title": "Online School Platform LEON",
-        "paragraph": "Developed this project with a team in a high-intensity internship program where I have participated as a full-stack developer working with React.js and Java. In one month, our team has managed to create a fully-functional application for online-schooling to make studying and teaching easier at home during the pandemic.",
-        "paragraph2": "The user of this application is able to communicate",
+        "title": "LEON",
+        "paragraph": "An application to make studying and teaching easier at home during the pandemic. It has functionality for teachers and students to communicate in live video class, share tasks, keep track of live schedules and more useful features.",
+        "paragraph2": "We developed this project with a team where my role was a full-stack developer working with React.js and Java.",
         "link": "https://github.com/zymantas-katinas/leon",
         "gitlink": "https://github.com/zymantas-katinas/leon",
         "img": [
-            "/images/projects/leon/3.png",
-            "/images/projects/leon/1.png",
-            "/images/projects/leon/2.png"
+            "/images/projects/l1-min.png",
+            "/images/projects/l2-min.png",
+            "/images/projects/l3-min.png"
         ],
         "tools": [
             "react",
             "typescript",
             "sass",
             "git",
-            "java"
+            "java",
+            "yarn"
         ]
     },
     {
-        "title": "My second Website",
-        "paragraph": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-        "link": "https://www.dviesepoazija.lt",
-        "gitlink": "https://github.com/zymantas-katinas/leon",
-        "img": [],
+        "title": "Spots.lt",
+        "paragraph": "A platform to share the best spots to work in town, whether it is a cafe or a co-working space.",
+        "paragraph2": "Designed with Adobe Xd and developed using plain JS and Sass, also integrated Google Maps API. The content is managed with WordPress.",
+        "link": "https://spots.lt/",
+        "gitlink": "https://github.com/zymantas-katinas/spots",
+        "img": [
+            "/images/projects/s1-min.png",
+            "/images/projects/s2-min.png",
+            "/images/projects/s3-min.png",
+            "/images/projects/s4-min.png"
+        ],
         "tools": [
-            "react",
+            "javascript",
+            "php",
+            "wordpress",
             "sass",
             "git",
-            "java",
             "npm",
-            "typescript"
+            "adobe"
         ]
-    },
-    {
-        "title": "My third Website",
-        "paragraph": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua",
-        "img": []
     }
 ]

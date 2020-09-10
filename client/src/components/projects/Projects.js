@@ -1,7 +1,6 @@
-import React, { useState } from "react"
+import React from "react"
 import Project from "./Project"
-import { useSelector, useDispatch } from "react-redux"
-import { projectsSelected, contactAway, mainAway, aboutAway } from "../../actions"
+import { useSelector } from "react-redux"
 import { motion } from "framer-motion"
 
 const trianglesVariants = {

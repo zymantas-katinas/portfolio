@@ -1,7 +1,6 @@
-
 .selected {
   & h2 {
-    opacity: 1;
+    color: $lightestText;
     &:after {
       transform: scaleX(1);
     }
