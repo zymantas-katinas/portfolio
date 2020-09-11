@@ -21,7 +21,7 @@ function Icons() {
             </a>
           </div>
           <div className="bottom-info__status">
-            <h2>
+            {/* <h2>
               {window.innerHeight > 750 && "current "} status:
               <span> a</span>
               <span>v</span>
@@ -32,7 +32,7 @@ function Icons() {
               <span>b</span>
               <span>l</span>
               <span>e</span>
-            </h2>
+            </h2> */}
           </div>
         </motion.div>
       )}
