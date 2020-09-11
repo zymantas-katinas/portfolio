@@ -5,6 +5,9 @@ import * as serviceWorker from "./serviceWorker"
 import { createStore } from "redux"
 import allReducers from "./reducers"
 import { Provider } from "react-redux"
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-132156686-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const store = createStore(
   allReducers,
