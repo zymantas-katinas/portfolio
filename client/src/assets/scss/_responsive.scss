@@ -74,8 +74,6 @@
   body,
   .frame,
   .App {
-    // height: 80%;
-    // min-height: 100vh;
     min-height: -webkit-fill-available;
   }
   .frame {
@@ -135,6 +133,10 @@
   .contact {
     &__form {
       width: 80%;
+      &-sent {
+        width: 70%;
+        border: 6px solid #163939;
+      }
     }
   }
   .projects {
@@ -165,11 +167,7 @@
       }
     }
   }
-  // .swiper-wrapper {
-  //   top: 0;
-  // }
   .swiper-pagination {
-    // top: 7%;
     right: 0px;
     width: 100%;
     padding-left: 0px;

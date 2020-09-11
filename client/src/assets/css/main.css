@@ -719,6 +719,67 @@ body {
   pointer-events: all;
 }
 
+.contact__form-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /* background-color: #163939; */
+  z-index: 9999;
+  height: 110%;
+  width: 110%;
+  /* margin: 0 auto; */
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  padding: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.contact__form-sent {
+  padding: 5% 4%;
+  background-color: #195546;
+  z-index: 9999;
+  color: #bfc9c5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 9px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.contact__form-sent span:nth-child(2) {
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.contact__form-sent div {
+  pointer-events: all;
+  cursor: pointer;
+  top: 0;
+  position: absolute;
+  right: 0;
+  padding: 1%;
+}
+
 .contact__form form {
   height: 100%;
   display: -webkit-box;
@@ -1138,6 +1199,10 @@ body {
   }
   .contact__form {
     width: 80%;
+  }
+  .contact__form-sent {
+    width: 70%;
+    border: 6px solid #163939;
   }
   .projects, .about, .contact {
     -webkit-transform: translate(0%, 0%);
