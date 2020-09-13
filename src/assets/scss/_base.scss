@@ -1,6 +1,8 @@
 // colors
 // $triangle: #3be6a638;
 $triangle: #00ff9424;
+// $triangle: rgba(13, 134, 90, 0.548);
+
 // $background: #1b3a48;
 $background: #163939;
 $frame: #11272f;
@@ -118,7 +120,7 @@ body {
   position: absolute;
   font-weight: 600;
   letter-spacing: -10px;
-  z-index: 99;
+  z-index: 9999;
   position: absolute;
   cursor: pointer;
   user-select: none;

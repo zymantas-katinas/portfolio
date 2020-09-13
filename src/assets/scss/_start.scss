@@ -5,11 +5,11 @@
   width: 100%;
   position: fixed;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 999;
   // transition: 2s cubic-bezier(0, 1.13, 0.21, 0.99);
   &__triangle {
     @extend %triangleDown;
-    z-index: 9999;
+    z-index: 9;
   }
   &__heading {
     text-shadow: 3px 3px 10px rgba(22, 58, 57, 0.6);

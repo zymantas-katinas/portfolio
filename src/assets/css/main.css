@@ -185,7 +185,7 @@ body {
   position: absolute;
   font-weight: 600;
   letter-spacing: -10px;
-  z-index: 99;
+  z-index: 9999;
   position: absolute;
   cursor: pointer;
   -webkit-user-select: none;
@@ -373,11 +373,11 @@ body {
   width: 100%;
   position: fixed;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 999;
 }
 
 .main__triangle {
-  z-index: 9999;
+  z-index: 9;
 }
 
 .main__heading {
